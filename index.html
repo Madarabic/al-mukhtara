@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>المختارة مول | Al-Mukhtara Mall - Premium Shopping & Dining Facing Al-Masjid An-Nabawi</title>
+  <title>مختارة مول | Mukhtara Mall - وجهة التسوق والخدمات الرائدة</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -47,6 +47,22 @@
           fontFamily: {
             cairo: ['Cairo', 'sans-serif'],
             montserrat: ['Montserrat', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-slow': 'bounce 2s infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
           }
         }
       }
@@ -58,49 +74,117 @@
       font-family: 'Cairo', 'Montserrat', sans-serif;
       transition: background-color 0.3s, color 0.3s;
     }
+    
     .high-contrast {
       filter: contrast(140%);
       background-color: #000000 !important;
       color: #ffff00 !important;
     }
+    
     .high-contrast section, .high-contrast div, .high-contrast header, .high-contrast footer {
       background-color: #000000 !important;
       color: #ffffff !important;
       border-color: #ffff00 !important;
     }
+    
     .readable-font {
       font-family: 'Courier New', Courier, monospace !important;
     }
+    
     .glass-panel {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(212, 175, 55, 0.2);
     }
+    
     .dark .glass-panel {
       background: rgba(26, 26, 26, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(212, 175, 55, 0.15);
     }
+    
     .gold-gradient-text {
       background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa820a 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    
     .ruby-gradient-bg {
       background: linear-gradient(135deg, #8b002b 0%, #c5003e 100%);
     }
+    
     .floor-layer {
       transition: all 0.3s ease;
     }
+    
     .floor-layer:hover {
       transform: translateY(-4px) scale(1.01);
     }
+    
+    .gallery-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .modal-fade {
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .badge-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    .scroll-smooth {
+      scroll-behavior: smooth;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #d4af37;
+      border-radius: 4px;
+    }
+    
+    .stat-counter {
+      font-variant-numeric: tabular-nums;
+    }
+    
     @media print {
       #accessibility-bar, #lang-switcher, #mobile-menu-btn, .no-print { display: none !important; }
       body { background: white !important; color: black !important; }
       .glass-panel { background: white !important; border: 1px solid #ccc !important; }
+    }
+    
+    .shimmer {
+      background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
   </style>
 </head>
@@ -138,25 +222,25 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Logo & Mall Identity -->
-      <a href="#" class="flex items-center gap-3 group">
+      <a href="#home" class="flex items-center gap-3 group scroll-smooth">
         <div class="w-12 h-12 rounded-xl ruby-gradient-bg border border-gold-500 flex items-center justify-center text-gold-400 font-bold text-2xl shadow-lg group-hover:scale-105 transition-transform">
           م
         </div>
         <div>
-          <h1 class="text-xl sm:text-2xl font-black tracking-wide text-ruby-700 dark:text-gold-400 font-cairo" data-i18n="mall_name_ar">المختارة مول - المدينة المنورة</h1>
-          <p class="text-xs text-gray-500 dark:text-gray-400 tracking-wider font-montserrat uppercase font-semibold" data-i18n="mall_subtitle">Al-Mukhtara Mall - Facing Al-Masjid An-Nabawi</p>
+          <h1 class="text-xl sm:text-2xl font-black tracking-wide text-ruby-700 dark:text-gold-400 font-cairo" data-i18n="mall_name">مختارة مول</h1>
+          <p class="text-xs text-gray-500 dark:text-gray-400 tracking-wider font-montserrat uppercase font-semibold" data-i18n="mall_tagline">Your Premium Destination</p>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
       <nav class="hidden lg:flex items-center gap-6 font-semibold text-sm">
         <a href="#home" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_home">الرئيسية</a>
-        <a href="#directory" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_shops">المتاجر</a>
+        <a href="#vision" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_vision">الرؤية والرسالة</a>
         <a href="#blueprint" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_floors">مخطط الأدوار</a>
-        <a href="#dining" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_dining">المطاعم والسطح</a>
-        <a href="#entertainment" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_entertainment">الترفيه</a>
-        <a href="#hypermarket" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_hypermarket">الهايبرماركت</a>
-        <a href="#leasing" class="text-ruby-600 dark:text-gold-400 font-bold hover:underline" data-i18n="nav_leasing">بدأ التأجير</a>
+        <a href="#gallery" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_gallery">الصور والفيديوهات</a>
+        <a href="#directory" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_shops">المتاجر</a>
+        <a href="#testimonials" class="hover:text-ruby-600 dark:hover:text-gold-400 transition" data-i18n="nav_reviews">التقييمات</a>
+        <a href="#leasing" class="text-ruby-600 dark:text-gold-400 font-bold hover:underline" data-i18n="nav_leasing">التأجير</a>
       </nav>
 
       <!-- Actions -->
@@ -168,7 +252,7 @@
 
         <button onclick="openLeaseModal()" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl ruby-gradient-bg text-white font-bold text-sm shadow-md hover:shadow-ruby-500/30 hover:scale-[1.02] active:scale-95 transition">
           <i class="fa-solid fa-key text-gold-400"></i>
-          <span data-i18n="btn_apply_lease">قدم طلب التأجير</span>
+          <span data-i18n="btn_apply_lease">تقديم طلب</span>
         </button>
 
         <button id="mobile-menu-btn" class="lg:hidden text-2xl text-ruby-700 dark:text-gold-400 p-2">
@@ -178,16 +262,16 @@
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-gold-500/20 bg-white/95 dark:bg-charcoal-900/95 backdrop-blur-md px-4 py-6 space-y-4 font-semibold">
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gold-500/20 bg-white/95 dark:bg-charcoal-900/95 backdrop-blur-md px-4 py-6 space-y-4 font-semibold max-h-[70vh] overflow-y-auto custom-scrollbar">
       <a href="#home" class="block py-2 text-ruby-600 dark:text-gold-400" data-i18n="nav_home">الرئيسية</a>
-      <a href="#directory" class="block py-2 hover:text-ruby-600" data-i18n="nav_shops">المتاجر</a>
+      <a href="#vision" class="block py-2 hover:text-ruby-600" data-i18n="nav_vision">الرؤية والرسالة</a>
       <a href="#blueprint" class="block py-2 hover:text-ruby-600" data-i18n="nav_floors">مخطط الأدوار</a>
-      <a href="#dining" class="block py-2 hover:text-ruby-600" data-i18n="nav_dining">المطاعم والسطح</a>
-      <a href="#entertainment" class="block py-2 hover:text-ruby-600" data-i18n="nav_entertainment">الترفيه</a>
-      <a href="#hypermarket" class="block py-2 hover:text-ruby-600" data-i18n="nav_hypermarket">الهايبرماركت</a>
-      <a href="#leasing" class="block py-2 text-gold-500 font-bold" data-i18n="nav_leasing">بدأ التأجير</a>
+      <a href="#gallery" class="block py-2 hover:text-ruby-600" data-i18n="nav_gallery">الصور والفيديوهات</a>
+      <a href="#directory" class="block py-2 hover:text-ruby-600" data-i18n="nav_shops">المتاجر</a>
+      <a href="#testimonials" class="block py-2 hover:text-ruby-600" data-i18n="nav_reviews">التقييمات</a>
+      <a href="#leasing" class="block py-2 text-gold-500 font-bold" data-i18n="nav_leasing">التأجير</a>
       <button onclick="openLeaseModal()" class="w-full mt-4 py-3 rounded-xl ruby-gradient-bg text-white font-bold text-center">
-        <span data-i18n="btn_apply_lease">قدم طلب التأجير</span>
+        <span data-i18n="btn_apply_lease">تقديم طلب</span>
       </button>
     </div>
   </header>
@@ -203,73 +287,156 @@
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-7 space-y-6 text-center lg:text-start">
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/40 bg-gold-500/10 text-gold-400 text-xs sm:text-sm font-bold">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            <span data-i18n="hero_badge">موقع استثنائي Premium+ | أمام ساحات المسجد النبوي الشريف مباشرة</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-500 badge-pulse"></span>
+            <span data-i18n="hero_badge">وجهة تجارية وخدمية رائدة</span>
           </div>
           
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-            <span data-i18n="hero_title_1">وجهة التسوق والترفيه الأفخم</span> <br/>
-            <span class="gold-gradient-text" data-i18n="hero_title_2">في قلب المدينة المنورة</span>
+            <span data-i18n="hero_title_1">مختارة مول</span> <br/>
+            <span class="gold-gradient-text" data-i18n="hero_title_2">تجربة تسوق متكاملة</span>
           </h1>
 
           <p class="text-base sm:text-lg text-gray-300 max-w-2xl leading-relaxed" data-i18n="hero_desc">
-            المختارة مول صرح معماري فاخر يقع بالمنطقة المركزية مباشرة أمام ساحات المسجد النبوي الشريف بالمدينة المنورة. يتكون من 6 أدوار تجارية متكاملة + طابق قبو بمرسى خدمات وهايبرماركت عملاق، واجهة زجاجية فاخرة، ومطاعم إطلالة بالسطح. احجز مساحتك التجارية الآن.
+            مختارة مول وجهة تسوق متكاملة تجمع بين المتاجر الفاخرة، المطاعم المتنوعة، والخدمات الإدارية المتقدمة. يتكون من 6 طوابق تجارية متطورة تضم 124 وحدة متنوعة.
           </p>
 
           <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
             <button onclick="openLeaseModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl ruby-gradient-bg text-white font-bold text-lg shadow-xl shadow-ruby-900/50 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-3">
               <i class="fa-solid fa-file-signature text-gold-400"></i>
-              <span data-i18n="hero_cta_lease">قدم طلب التأجير الآن</span>
+              <span data-i18n="hero_cta_lease">تقديم طلب تأجير</span>
             </button>
             <a href="#blueprint" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-gold-500/40 hover:bg-white/5 font-bold text-lg text-gold-400 text-center transition flex items-center justify-center gap-2">
               <i class="fa-solid fa-cubes"></i>
-              <span data-i18n="hero_cta_blueprint">استكشف المخطط 3D</span>
+              <span data-i18n="hero_cta_blueprint">استكشف المخطط</span>
             </a>
           </div>
 
           <!-- Metrics -->
           <div class="pt-8 grid grid-cols-3 gap-4 border-t border-gray-800 text-center lg:text-start">
             <div>
-              <p class="text-2xl sm:text-3xl font-black text-gold-400">6 + 1</p>
-              <p class="text-xs text-gray-400" data-i18n="stat_floors">طوابق تجارية وخدمية</p>
+              <p class="text-2xl sm:text-3xl font-black text-gold-400 stat-counter">6</p>
+              <p class="text-xs text-gray-400" data-i18n="stat_floors">طوابق تجارية</p>
             </div>
             <div>
-              <p class="text-2xl sm:text-3xl font-black text-ruby-500">45,000 m²</p>
-              <p class="text-xs text-gray-400" data-i18n="stat_area">المساحة التأجيرية</p>
+              <p class="text-2xl sm:text-3xl font-black text-ruby-500 stat-counter">124</p>
+              <p class="text-xs text-gray-400" data-i18n="stat_units">وحدة تجارية</p>
             </div>
             <div>
-              <p class="text-2xl sm:text-3xl font-black text-gold-400">180+</p>
-              <p class="text-xs text-gray-400" data-i18n="stat_stores">معرض ومطعم فاخر</p>
+              <p class="text-2xl sm:text-3xl font-black text-gold-400 stat-counter">100%</p>
+              <p class="text-xs text-gray-400" data-i18n="stat_quality">جودة عالية</p>
             </div>
           </div>
         </div>
 
+        <!-- Hero Image -->
         <div class="lg:col-span-5 relative">
           <div class="relative mx-auto rounded-3xl overflow-hidden border-2 border-gold-500/30 shadow-2xl bg-charcoal-800 group">
-            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" alt="Al-Mukhtara Mall Exterior Render" class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%23333' width='800' height='600'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-size='32' font-family='Arial'%3EMukhtara Mall%3C/text%3E%3C/svg%3E" alt="مختارة مول" class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-transparent to-transparent"></div>
             
             <div class="absolute bottom-6 inset-x-6 bg-charcoal-900/90 backdrop-blur-md p-4 rounded-2xl border border-gold-500/30">
               <div class="flex items-center justify-between mb-1">
-                <span class="text-xs font-bold text-gold-400" data-i18n="render_caption_tag">محاكاة معمارية فائقة الدقة - إطلالة الحرم</span>
-                <span class="text-[10px] bg-ruby-600 text-white px-2 py-0.5 rounded font-mono">AutoCAD BIM + V-Ray</span>
+                <span class="text-xs font-bold text-gold-400" data-i18n="render_caption_tag">تصميم معماري عصري</span>
+                <span class="text-[10px] bg-ruby-600 text-white px-2 py-0.5 rounded font-mono">Premium</span>
               </div>
-              <h3 class="text-sm font-bold text-white" data-i18n="render_caption_title">الواجهة الزجاجية المطلة على المسجد النبوي</h3>
-              <p class="text-xs text-gray-400" data-i18n="render_caption_desc">إضاءة طبيعية وتقسيم هندسي عصري يطل مباشراً على ساحات الحرم النبوي الشريف.</p>
+              <h3 class="text-sm font-bold text-white" data-i18n="render_caption_title">بيئة تسوق متطورة</h3>
+              <p class="text-xs text-gray-400" data-i18n="render_caption_desc">تصميم معماري حديث يجمع بين الفخامة والراحة</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- STATISTICS SECTION -->
+    <section class="py-16 bg-gradient-to-r from-ruby-900 to-charcoal-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="text-3xl font-black text-gold-400 stat-counter">45K+</div>
+            <p class="text-xs text-gray-300 mt-2" data-i18n="stat_visitors">زائر شهري</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-gold-400 stat-counter">98%</div>
+            <p class="text-xs text-gray-300 mt-2" data-i18n="stat_satisfaction">رضا العملاء</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-gold-400 stat-counter">24/7</div>
+            <p class="text-xs text-gray-300 mt-2" data-i18n="stat_support">دعم فني</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-gold-400 stat-counter">50+</div>
+            <p class="text-xs text-gray-300 mt-2" data-i18n="stat_brands">علامة تجارية</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION & MISSION SECTION -->
+    <section id="vision" class="py-20 bg-white dark:bg-charcoal-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-ruby-600 dark:text-gold-400 font-bold text-sm tracking-wider uppercase" data-i18n="vm_subtitle">الهوية والقيم الأساسية</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 font-cairo" data-i18n="vm_title">رؤيتنا ورسالتنا</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Vision Card -->
+          <div class="p-8 rounded-3xl bg-gradient-to-br from-ruby-50 to-ruby-100 dark:from-ruby-900/20 dark:to-ruby-800/20 border border-ruby-500/30 hover:shadow-lg transition">
+            <div class="w-14 h-14 rounded-2xl ruby-gradient-bg text-white flex items-center justify-center font-bold text-2xl mb-6 shadow-lg">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <h3 class="text-2xl font-bold font-cairo mb-4 text-ruby-700 dark:text-ruby-400" data-i18n="vision_title">الرؤية</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-i18n="vision_text">
+              أن يكون مختارة مول وجهة تجارية وخدمية رائدة، تجمع بين الجودة، التنوع، والأسعار المناسبة، في بيئة عصرية منظمة.
+            </p>
+          </div>
+
+          <!-- Mission Card -->
+          <div class="p-8 rounded-3xl bg-gradient-to-br from-gold-50 to-gold-100 dark:from-gold-900/20 dark:to-gold-800/20 border border-gold-500/30 hover:shadow-lg transition">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-400 to-gold-600 text-white flex items-center justify-center font-bold text-2xl mb-6 shadow-lg">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h3 class="text-2xl font-bold font-cairo mb-4 text-gold-700 dark:text-gold-400" data-i18n="mission_title">الرسالة</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-i18n="mission_text">
+              تقديم تجربة تسوق متكاملة تجمع بين المتاجر والمطاعم والخدمات الإدارية، مع دعم روّاد الأعمال.
+            </p>
+          </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-6 rounded-2xl bg-slate-100 dark:bg-charcoal-800 border border-gray-200 dark:border-gray-700 text-center hover:shadow-md transition">
+            <i class="fa-solid fa-star text-gold-500 text-3xl mb-3 block"></i>
+            <h4 class="font-bold mb-2" data-i18n="value_quality">الجودة</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400" data-i18n="value_quality_desc">معايير عالية في كل التفاصيل</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-100 dark:bg-charcoal-800 border border-gray-200 dark:border-gray-700 text-center hover:shadow-md transition">
+            <i class="fa-solid fa-handshake text-ruby-500 text-3xl mb-3 block"></i>
+            <h4 class="font-bold mb-2" data-i18n="value_service">الخدمة</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400" data-i18n="value_service_desc">خدمة عملاء متميزة دائماً</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-100 dark:bg-charcoal-800 border border-gray-200 dark:border-gray-700 text-center hover:shadow-md transition">
+            <i class="fa-solid fa-lightbulb text-emerald-500 text-3xl mb-3 block"></i>
+            <h4 class="font-bold mb-2" data-i18n="value_innovation">الابتكار</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400" data-i18n="value_innovation_desc">تطور مستمر وحداثة دائمة</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-100 dark:bg-charcoal-800 border border-gray-200 dark:border-gray-700 text-center hover:shadow-md transition">
+            <i class="fa-solid fa-users text-blue-500 text-3xl mb-3 block"></i>
+            <h4 class="font-bold mb-2" data-i18n="value_community">المجتمع</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400" data-i18n="value_community_desc">دعم الاقتصاد المحلي</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- BLUEPRINT SECTION -->
-    <section id="blueprint" class="py-20 bg-slate-100 dark:bg-charcoal-900 transition-colors">
+    <section id="blueprint" class="py-20 bg-slate-100 dark:bg-charcoal-950 transition-colors">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-14">
-          <span class="text-ruby-600 dark:text-gold-400 font-bold text-sm tracking-wider uppercase" data-i18n="bp_subtitle">التوزيع المعماري للمشروع بالمنطقة المركزية</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 font-cairo" data-i18n="bp_title">مخطط الأدوار والأنشطة التجارية</h2>
-          <p class="text-gray-600 dark:text-gray-300 mt-3" data-i18n="bp_desc">اضغط على أي طابق للتعرف على طبيعة الأنشطة، المساحات المتاحة للتأجير، والشركاء الرئيسيين.</p>
+          <span class="text-ruby-600 dark:text-gold-400 font-bold text-sm tracking-wider uppercase" data-i18n="bp_subtitle">التوزيع المعماري</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 font-cairo" data-i18n="bp_title">6 طوابق تجارية و 124 وحدة</h2>
+          <p class="text-gray-600 dark:text-gray-300 mt-3" data-i18n="bp_desc">اضغط على أي طابق لمعرفة المزيد</p>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-8 items-start">
@@ -279,55 +446,66 @@
               <div class="flex items-center gap-4">
                 <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500 flex items-center justify-center text-gold-400 font-bold text-lg">6</div>
                 <div>
-                  <h4 class="font-bold text-base text-gold-300" data-i18n="fl6_name">السطح البانورامي (Rooftop Lounge)</h4>
-                  <p class="text-xs text-gray-300" data-i18n="fl6_short">مطاعم فاخرة ومقاهي مع إطلالة بانورامية على المسجد النبوي</p>
+                  <h4 class="font-bold text-base text-gold-300" data-i18n="fl6_name">الدور السادس</h4>
+                  <p class="text-xs text-gray-300" data-i18n="fl6_short">20 وحدة - مطاعم ومقاهي</p>
                 </div>
               </div>
-              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30" data-i18n="fl_status_limited">تأجير محدود</span>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300" data-i18n="fl_status_limited">محدود</span>
             </div>
 
             <div onclick="selectFloor(5)" id="floor-btn-5" class="floor-layer cursor-pointer p-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-charcoal-800 shadow-sm flex items-center justify-between">
               <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-xl bg-ruby-100 dark:bg-ruby-900/40 text-ruby-600 dark:text-ruby-400 font-bold text-lg flex items-center justify-center">4-5</div>
+                <div class="w-10 h-10 rounded-xl bg-ruby-100 dark:bg-ruby-900/40 text-ruby-600 dark:text-ruby-400 font-bold text-lg flex items-center justify-center">5</div>
                 <div>
-                  <h4 class="font-bold text-base" data-i18n="fl45_name">الأزياء والموضة العالمية</h4>
-                  <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="fl45_short">ملابس، مجوهرات، ساعات، حقائب</p>
+                  <h4 class="font-bold text-base" data-i18n="fl5_name">الدور الخامس</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="fl5_short">22 وحدة - موضة وأزياء</p>
                 </div>
               </div>
-              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" data-i18n="fl_status_open">متاح للتأجير</span>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" data-i18n="fl_status_open">متاح</span>
+            </div>
+
+            <div onclick="selectFloor(4)" id="floor-btn-4" class="floor-layer cursor-pointer p-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-charcoal-800 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-ruby-100 dark:bg-ruby-900/40 text-ruby-600 dark:text-ruby-400 font-bold text-lg flex items-center justify-center">4</div>
+                <div>
+                  <h4 class="font-bold text-base" data-i18n="fl4_name">الدور الرابع</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="fl4_short">20 وحدة - متاجر متخصصة</p>
+                </div>
+              </div>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" data-i18n="fl_status_open">متاح</span>
             </div>
 
             <div onclick="selectFloor(3)" id="floor-btn-3" class="floor-layer cursor-pointer p-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-charcoal-800 shadow-sm flex items-center justify-between">
               <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-xl bg-ruby-100 dark:bg-ruby-900/40 text-ruby-600 dark:text-ruby-400 font-bold text-lg flex items-center justify-center">2-3</div>
+                <div class="w-10 h-10 rounded-xl bg-ruby-100 dark:bg-ruby-900/40 text-ruby-600 dark:text-ruby-400 font-bold text-lg flex items-center justify-center">3</div>
                 <div>
-                  <h4 class="font-bold text-base" data-i18n="fl23_name">الإلكترونيات والعطور والتجميل</h4>
-                  <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="fl23_short">أجهزة ذكية، عود شرقي فاخر، مستحضرات تجميل</p>
+                  <h4 class="font-bold text-base" data-i18n="fl3_name">الدور الثالث</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="fl3_short">18 وحدة - إلكترونيات</p>
                 </div>
               </div>
-              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" data-i18n="fl_status_open">متاح للتأجير</span>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" data-i18n="fl_status_open">متاح</span>
+            </div>
+
+            <div onclick="selectFloor(2)" id="floor-btn-2" class="floor-layer cursor-pointer p-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-charcoal-800 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-ruby-100 dark:bg-ruby-900/40 text-ruby-600 dark:text-ruby-400 font-bold text-lg flex items-center justify-center">2</div>
+                <div>
+                  <h4 class="font-bold text-base" data-i18n="fl2_name">الدور الثاني</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="fl2_short">16 وحدة - خدمات</p>
+                </div>
+              </div>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" data-i18n="fl_status_open">متاح</span>
             </div>
 
             <div onclick="selectFloor(1)" id="floor-btn-1" class="floor-layer cursor-pointer p-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-charcoal-800 shadow-sm flex items-center justify-between">
               <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-xl bg-ruby-100 dark:bg-ruby-900/40 text-ruby-600 dark:text-ruby-400 font-bold text-lg flex items-center justify-center">G-1</div>
+                <div class="w-10 h-10 rounded-xl bg-ruby-100 dark:bg-ruby-900/40 text-ruby-600 dark:text-ruby-400 font-bold text-lg flex items-center justify-center">1</div>
                 <div>
-                  <h4 class="font-bold text-base" data-i18n="fl1_name">الترفيه، السينما وخدمات زوار الحرم</h4>
-                  <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="fl1_short">مجمع سينمائي، منطقة ألعاب، مراكز خدمة الزوار</p>
+                  <h4 class="font-bold text-base" data-i18n="fl1_name">الدور الأول</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="fl1_short">18 وحدة - مطاعم</p>
                 </div>
               </div>
-              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-gray-500/10 text-gray-500" data-i18n="fl_status_full">مكتمل تقريبًا</span>
-            </div>
-
-            <div onclick="selectFloor(0)" id="floor-btn-0" class="floor-layer cursor-pointer p-4 rounded-2xl border-2 border-emerald-500/40 bg-emerald-950/20 dark:bg-emerald-950/40 shadow-sm flex items-center justify-between">
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-500 font-bold text-lg flex items-center justify-center">B</div>
-                <div>
-                  <h4 class="font-bold text-base text-emerald-600 dark:text-emerald-400" data-i18n="flb_name">القبو: الهايبرماركت والمواقف</h4>
-                  <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="flb_short">Danube Hypermarket + مواقف مغطاة تسع 1500+ سيارة</p>
-                </div>
-              </div>
-              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500 text-white" data-i18n="fl_status_anchor">مستأجر رئيسي</span>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-gray-500/10 text-gray-500" data-i18n="fl_status_full">مكتمل</span>
             </div>
           </div>
 
@@ -336,92 +514,328 @@
       </div>
     </section>
 
-    <!-- DIRECTORY SECTION -->
-    <section id="directory" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-        <div>
-          <span class="text-ruby-600 dark:text-gold-400 font-bold text-sm tracking-wider uppercase" data-i18n="dir_subtitle">دليل العلامات التجارية - فرع الحرم النبوي</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold mt-1 font-cairo" data-i18n="dir_title">المتاجر والشركاء الحاليون</h2>
-        </div>
-        <div class="relative w-full md:w-80">
-          <input type="text" id="dir-search" placeholder="ابحث عن متجر أو علامة تجارية..." class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-charcoal-900 focus:outline-none focus:border-ruby-500 transition text-sm">
-          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-400"></i>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar" id="category-filters">
-        <button onclick="filterCategory('all')" class="cat-filter-btn px-5 py-2 rounded-xl text-sm font-bold bg-ruby-600 text-white shadow-md transition whitespace-nowrap" data-cat="all" data-i18n="cat_all">الكل</button>
-        <button onclick="filterCategory('hypermarket')" class="cat-filter-btn px-5 py-2 rounded-xl text-sm font-bold bg-gray-100 dark:bg-charcoal-800 text-gray-600 dark:text-gray-300 hover:bg-gold-500 hover:text-charcoal-900 transition whitespace-nowrap" data-cat="hypermarket" data-i18n="cat_hyper">الهايبرماركت</button>
-        <button onclick="filterCategory('fashion')" class="cat-filter-btn px-5 py-2 rounded-xl text-sm font-bold bg-gray-100 dark:bg-charcoal-800 text-gray-600 dark:text-gray-300 hover:bg-gold-500 hover:text-charcoal-900 transition whitespace-nowrap" data-cat="fashion" data-i18n="cat_fashion">الأزياء والموضة</button>
-        <button onclick="filterCategory('dining')" class="cat-filter-btn px-5 py-2 rounded-xl text-sm font-bold bg-gray-100 dark:bg-charcoal-800 text-gray-600 dark:text-gray-300 hover:bg-gold-500 hover:text-charcoal-900 transition whitespace-nowrap" data-cat="dining" data-i18n="cat_dining">المطاعم والسطح</button>
-        <button onclick="filterCategory('electronics')" class="cat-filter-btn px-5 py-2 rounded-xl text-sm font-bold bg-gray-100 dark:bg-charcoal-800 text-gray-600 dark:text-gray-300 hover:bg-gold-500 hover:text-charcoal-900 transition whitespace-nowrap" data-cat="electronics" data-i18n="cat_elec">الإلكترونيات والمكتبات</button>
-        <button onclick="filterCategory('entertainment')" class="cat-filter-btn px-5 py-2 rounded-xl text-sm font-bold bg-gray-100 dark:bg-charcoal-800 text-gray-600 dark:text-gray-300 hover:bg-gold-500 hover:text-charcoal-900 transition whitespace-nowrap" data-cat="entertainment" data-i18n="cat_ent">الترفيه والسينما</button>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="directory-grid"></div>
-    </section>
-
-    <!-- ROOFTOP DINING -->
-    <section id="dining" class="py-20 ruby-gradient-bg text-white relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div class="space-y-6">
-            <span class="px-3 py-1 rounded-full bg-gold-500 text-charcoal-900 text-xs font-black tracking-wider uppercase" data-i18n="roof_badge">التجربة الاستثنائية - الدور السادس</span>
-            <h2 class="text-3xl sm:text-5xl font-black font-cairo leading-tight" data-i18n="roof_title">مطاعم فاخرة وجلسات خارجية مطلة على المسجد النبوي الشريف</h2>
-            <p class="text-ruby-100 leading-relaxed text-base sm:text-lg" data-i18n="roof_desc">
-              تم تصميم السطح البانورامي ليحتضن أرقى المطاعم والمقاهي العالمية والمحلية المختصة، مع مساحات واسعة للجلسات المفتوحة والمظلات العصرية بإطلالة مباشرة وفريدة على ساحات ومآذن المسجد النبوي.
-            </p>
-            <ul class="space-y-3 pt-2">
-              <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i><span data-i18n="roof_feat1">إطلالة بانورامية روحانية 360 درجة على المسجد النبوي والمعالم المقدسة.</span></li>
-              <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i><span data-i18n="roof_feat2">مصاعد VIP مباشرة تصل إلى الدور السادس.</span></li>
-              <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i><span data-i18n="roof_feat3">مساحات خارجية مجهزة بأنظمة تكييف ورذاذ هواء عصري.</span></li>
-            </ul>
-            <div class="pt-4">
-              <button onclick="openLeaseModal('Rooftop Dining')" class="px-6 py-3 rounded-xl bg-gold-500 text-charcoal-900 font-bold hover:bg-gold-400 transition shadow-lg">
-                <span data-i18n="roof_cta">استأجر مساحتك بالسطح الآن</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" class="rounded-2xl border border-gold-500/30 object-cover h-64 w-full shadow-xl" alt="Fine Dining Rooftop">
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop" class="rounded-2xl border border-gold-500/30 object-cover h-64 w-full shadow-xl mt-8" alt="Specialty Cafe Lounge">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HYPERMARKET & CINEMA -->
-    <section id="hypermarket" class="py-20 bg-white dark:bg-charcoal-950">
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-20 bg-white dark:bg-charcoal-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="p-8 rounded-3xl bg-slate-50 dark:bg-charcoal-900 border border-emerald-500/30 flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-xl mb-4"><i class="fa-solid fa-cart-shopping"></i></div>
-              <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest" data-i18n="anchor_hyper_tag">المستأجر الرئيسي - القبو</span>
-              <h3 class="text-2xl font-bold mt-1 mb-3" data-i18n="anchor_hyper_title">دانوب هايبرماركت (Danube)</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="anchor_hyper_desc">
-                يمتد الهايبرماركت على مساحة تتجاوز 6,200 متر مربع بالطابق السفلي مع دخول مباشر من مواقف السيارات لخدمة ضيوف وزوار الحرم النبوي بشكل يومي وسلس.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center text-xs font-bold text-emerald-600 dark:text-emerald-400">
-              <span data-i18n="hyper_space">المساحة: 6,200 م²</span>
-              <span data-i18n="hyper_status">تم التشغيل بنجاح ✓</span>
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-ruby-600 dark:text-gold-400 font-bold text-sm tracking-wider uppercase" data-i18n="gallery_subtitle">الصور والفيديوهات</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 font-cairo" data-i18n="gallery_title">استكشف مختارة مول</h2>
+          <p class="text-gray-600 dark:text-gray-300 mt-3" data-i18n="gallery_desc">اطلع على أحدث صور وفيديوهات من مختلف أقسام المول</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Gallery Items -->
+          <div onclick="openGalleryModal(0)" class="gallery-item bg-slate-200 dark:bg-charcoal-800 relative group">
+            <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="400" fill="#e2e8f0"/>
+              <circle cx="200" cy="180" r="60" fill="#d4af37" opacity="0.3"/>
+              <text x="200" y="320" text-anchor="middle" fill="#64748b" font-size="16" font-family="Cairo">الطابق الأول</text>
+            </svg>
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <i class="fas fa-search text-white text-3xl"></i>
             </div>
           </div>
 
-          <div id="entertainment" class="p-8 rounded-3xl bg-slate-50 dark:bg-charcoal-900 border border-ruby-500/30 flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-xl bg-ruby-600 text-white flex items-center justify-center font-bold text-xl mb-4"><i class="fa-solid fa-film"></i></div>
-              <span class="text-xs font-bold text-ruby-600 dark:text-gold-400 uppercase tracking-widest" data-i18n="anchor_cinema_tag">الترفيه العائلي - الدور الأول</span>
-              <h3 class="text-2xl font-bold mt-1 mb-3" data-i18n="anchor_cinema_title">فوكس سينما (VOX Cinemas) & Magic Planet</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="anchor_cinema_desc">
-                10 شاشات عرض سينمائي حديثة بتقنية IMAX وصالات VIP، بالإضافة لمنطقة ألعاب مغطاة متكاملة للأطفال والعائلات بقلب المدينة المنورة.
-              </p>
+          <div onclick="openGalleryModal(1)" class="gallery-item bg-slate-200 dark:bg-charcoal-800 relative group">
+            <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="400" fill="#e2e8f0"/>
+              <rect x="80" y="100" width="240" height="200" fill="#d4af37" opacity="0.3" rx="20"/>
+              <text x="200" y="320" text-anchor="middle" fill="#64748b" font-size="16" font-family="Cairo">الطابق الثاني</text>
+            </svg>
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <i class="fas fa-search text-white text-3xl"></i>
             </div>
-            <div class="mt-6 pt-4 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center text-xs font-bold text-ruby-600 dark:text-gold-400">
-              <span data-i18n="cinema_space">10 صالات عرض سينمائي</span>
-              <span data-i18n="cinema_status">جاهز للاستقبال ✓</span>
+          </div>
+
+          <div onclick="openGalleryModal(2)" class="gallery-item bg-slate-200 dark:bg-charcoal-800 relative group">
+            <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="400" fill="#e2e8f0"/>
+              <circle cx="100" cy="100" r="50" fill="#d4af37" opacity="0.3"/>
+              <circle cx="300" cy="300" r="50" fill="#d4af37" opacity="0.3"/>
+              <text x="200" y="320" text-anchor="middle" fill="#64748b" font-size="16" font-family="Cairo">الطابق الثالث</text>
+            </svg>
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <i class="fas fa-search text-white text-3xl"></i>
+            </div>
+          </div>
+
+          <div onclick="openGalleryModal(3)" class="gallery-item bg-slate-200 dark:bg-charcoal-800 relative group">
+            <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="400" fill="#e2e8f0"/>
+              <path d="M 200 100 L 300 300 L 100 300 Z" fill="#d4af37" opacity="0.3"/>
+              <text x="200" y="340" text-anchor="middle" fill="#64748b" font-size="16" font-family="Cairo">الطابق الرابع</text>
+            </svg>
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <i class="fas fa-search text-white text-3xl"></i>
+            </div>
+          </div>
+
+          <div onclick="openGalleryModal(4)" class="gallery-item bg-slate-200 dark:bg-charcoal-800 relative group">
+            <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="400" fill="#e2e8f0"/>
+              <rect x="60" y="80" width="100" height="120" fill="#d4af37" opacity="0.3" rx="10"/>
+              <rect x="240" y="80" width="100" height="120" fill="#d4af37" opacity="0.3" rx="10"/>
+              <text x="200" y="320" text-anchor="middle" fill="#64748b" font-size="16" font-family="Cairo">الطابق الخامس</text>
+            </svg>
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <i class="fas fa-search text-white text-3xl"></i>
+            </div>
+          </div>
+
+          <div onclick="openGalleryModal(5)" class="gallery-item bg-slate-200 dark:bg-charcoal-800 relative group">
+            <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="400" fill="#e2e8f0"/>
+              <circle cx="120" cy="120" r="40" fill="#d4af37" opacity="0.3"/>
+              <circle cx="280" cy="120" r="40" fill="#d4af37" opacity="0.3"/>
+              <circle cx="200" cy="260" r="40" fill="#d4af37" opacity="0.3"/>
+              <text x="200" y="340" text-anchor="middle" fill="#64748b" font-size="16" font-family="Cairo">الطابق السادس</text>
+            </svg>
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <i class="fas fa-search text-white text-3xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY MODAL -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white dark:bg-charcoal-900 rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl">
+        <div id="gallery-modal-content" class="relative">
+          <button onclick="closeGalleryModal()" class="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/70 w-10 h-10 rounded-full flex items-center justify-center z-10">
+            <i class="fas fa-xmark"></i>
+          </button>
+          <div id="modal-image" class="w-full h-96 bg-slate-200 flex items-center justify-center">
+            <!-- Image placeholder -->
+          </div>
+          <div class="p-6 bg-white dark:bg-charcoal-900">
+            <h3 id="modal-title" class="text-2xl font-bold font-cairo mb-2">الطابق الأول</h3>
+            <p id="modal-desc" class="text-gray-600 dark:text-gray-300 text-sm">اكتشف مجموعتنا الرائعة من المطاعم والخدمات على الطابق الأول من المول</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIRECTORY SECTION WITH SEARCH & FILTER -->
+    <section id="directory" class="py-20 bg-slate-100 dark:bg-charcoal-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-ruby-600 dark:text-gold-400 font-bold text-sm tracking-wider uppercase" data-i18n="dir_subtitle">دليل المتاجر</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 font-cairo" data-i18n="dir_title">متاجرنا والخدمات</h2>
+        </div>
+
+        <!-- Search & Filter Bar -->
+        <div class="mb-8 flex flex-col sm:flex-row gap-4">
+          <input type="text" id="search-input" placeholder="ابحث عن متجر..." class="flex-1 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-charcoal-800 focus:outline-none focus:border-ruby-500" oninput="filterDirectory()">
+          <select id="category-filter" class="px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-charcoal-800 focus:outline-none focus:border-ruby-500" onchange="filterDirectory()">
+            <option value="">جميع الفئات</option>
+            <option value="fashion">أزياء</option>
+            <option value="dining">مطاعم</option>
+            <option value="electronics">إلكترونيات</option>
+            <option value="services">خدمات</option>
+          </select>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="directory-grid">
+          <div class="p-5 rounded-2xl bg-white dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition flex items-center justify-between group store-item" data-category="dining">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-105 transition"><i class="fa-solid fa-store"></i></div>
+              <div>
+                <h4 class="font-bold text-base font-cairo">متاجر متخصصة</h4>
+                <p class="text-xs text-gray-400">جميع الطوابق</p>
+              </div>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition flex items-center justify-between group store-item" data-category="dining">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-ruby-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-105 transition"><i class="fa-solid fa-utensils"></i></div>
+              <div>
+                <h4 class="font-bold text-base font-cairo">مطاعم ومقاهي</h4>
+                <p class="text-xs text-gray-400">الطوابق 1 و 6</p>
+              </div>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition flex items-center justify-between group store-item" data-category="fashion">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gold-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-105 transition"><i class="fa-solid fa-shirt"></i></div>
+              <div>
+                <h4 class="font-bold text-base font-cairo">أزياء وموضة</h4>
+                <p class="text-xs text-gray-400">الطوابق 4 و 5</p>
+              </div>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition flex items-center justify-between group store-item" data-category="electronics">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-105 transition"><i class="fa-solid fa-laptop"></i></div>
+              <div>
+                <h4 class="font-bold text-base font-cairo">إلكترونيات</h4>
+                <p class="text-xs text-gray-400">الطابق الثالث</p>
+              </div>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition flex items-center justify-between group store-item" data-category="services">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-105 transition"><i class="fa-solid fa-concierge-bell"></i></div>
+              <div>
+                <h4 class="font-bold text-base font-cairo">خدمات</h4>
+                <p class="text-xs text-gray-400">الطابق الثاني</p>
+              </div>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition flex items-center justify-between group store-item" data-category="electronics">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-pink-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-105 transition"><i class="fa-solid fa-spray-can"></i></div>
+              <div>
+                <h4 class="font-bold text-base font-cairo">العطور والعناية</h4>
+                <p class="text-xs text-gray-400">الطابق الثالث</p>
+              </div>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-20 bg-white dark:bg-charcoal-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-ruby-600 dark:text-gold-400 font-bold text-sm tracking-wider uppercase" data-i18n="testimonials_subtitle">آراء العملاء</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 font-cairo" data-i18n="testimonials_title">ما يقول عملاؤنا</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Testimonial 1 -->
+          <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-charcoal-800 dark:to-charcoal-900 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition">
+            <div class="flex items-center gap-2 mb-3">
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">تجربة تسوق رائعة وخدمة متميزة! المول جميل جداً والموظفون دائماً مساعدون</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-ruby-500 text-white flex items-center justify-center font-bold">س</div>
+              <div>
+                <h4 class="font-bold text-sm">سارة أحمد</h4>
+                <p class="text-xs text-gray-500 dark:text-gray-400">زائرة منتظمة</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-charcoal-800 dark:to-charcoal-900 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition">
+            <div class="flex items-center gap-2 mb-3">
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">استثمار رائع! فتحت متجري هنا وبيعاتي تتجاوز التوقعات بفضل الموقع الممتاز</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gold-500 text-white flex items-center justify-center font-bold">م</div>
+              <div>
+                <h4 class="font-bold text-sm">محمد علي</h4>
+                <p class="text-xs text-gray-500 dark:text-gray-400">مالك متجر</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-charcoal-800 dark:to-charcoal-900 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition">
+            <div class="flex items-center gap-2 mb-3">
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+              <i class="fas fa-star text-gold-500 text-sm"></i>
+            </div>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">أفضل مول في المنطقة! تصميم معماري جميل وتنوع رائع من المتاجر والمطاعم</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold">ف</div>
+              <div>
+                <h4 class="font-bold text-sm">فاطمة محمود</h4>
+                <p class="text-xs text-gray-500 dark:text-gray-400">عميلة دائمة</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-20 bg-slate-100 dark:bg-charcoal-950">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <span class="text-ruby-600 dark:text-gold-400 font-bold text-sm tracking-wider uppercase" data-i18n="faq_subtitle">الأسئلة الشائعة</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 font-cairo" data-i18n="faq_title">نجيب على أسئلتك</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- FAQ Item 1 -->
+          <div class="rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-charcoal-900 overflow-hidden">
+            <button class="faq-button w-full px-6 py-4 flex items-center justify-between font-bold text-start hover:bg-slate-50 dark:hover:bg-charcoal-800 transition">
+              <span data-i18n="faq_q1">ما هي ساعات العمل الرسمية للمول؟</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-sm text-gray-600 dark:text-gray-300">
+              <p data-i18n="faq_a1">يفتح المول أبوابه من الساعة 9:00 صباحاً إلى منتصف الليل يومياً بما فيها أيام الإجازات.</p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-charcoal-900 overflow-hidden">
+            <button class="faq-button w-full px-6 py-4 flex items-center justify-between font-bold text-start hover:bg-slate-50 dark:hover:bg-charcoal-800 transition">
+              <span data-i18n="faq_q2">هل يتوفر موقف سيارات مجاني؟</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-sm text-gray-600 dark:text-gray-300">
+              <p data-i18n="faq_a2">نعم، يتوفر موقف سيارات مجاني واسع الموقع مع أماكن مخصصة لذوي الاحتياجات الخاصة.</p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-charcoal-900 overflow-hidden">
+            <button class="faq-button w-full px-6 py-4 flex items-center justify-between font-bold text-start hover:bg-slate-50 dark:hover:bg-charcoal-800 transition">
+              <span data-i18n="faq_q3">كيف يمكنني تقديم طلب تأجير مساحة تجارية؟</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-sm text-gray-600 dark:text-gray-300">
+              <p data-i18n="faq_a3">يمكنك تقديم الطلب عبر النموذج الموجود في الموقع أو التواصل معنا مباشرة عبر الهاتف أو البريد الإلكتروني.</p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-charcoal-900 overflow-hidden">
+            <button class="faq-button w-full px-6 py-4 flex items-center justify-between font-bold text-start hover:bg-slate-50 dark:hover:bg-charcoal-800 transition">
+              <span data-i18n="faq_q4">هل توجد منطقة لعب الأطفال؟</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-sm text-gray-600 dark:text-gray-300">
+              <p data-i18n="faq_a4">نعم، يوجد منطقة لعب آمنة وحديثة للأطفال مع إشراف كامل والتزام بمعايير السلامة العالمية.</p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-charcoal-900 overflow-hidden">
+            <button class="faq-button w-full px-6 py-4 flex items-center justify-between font-bold text-start hover:bg-slate-50 dark:hover:bg-charcoal-800 transition">
+              <span data-i18n="faq_q5">هل هناك برامج ولاء للعملاء المنتظمين؟</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-4 text-sm text-gray-600 dark:text-gray-300">
+              <p data-i18n="faq_a5">نعم، لدينا برنامج عضوية حصري يوفر عروض خاصة وخصومات على المتاجر والمطاعم بالمول.</p>
             </div>
           </div>
         </div>
@@ -431,16 +845,57 @@
     <!-- LEASING SECTION -->
     <section id="leasing" class="py-20 bg-charcoal-900 text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="text-gold-400 font-bold text-sm tracking-widest uppercase" data-i18n="lease_sec_tag">فرصتك للاستثمار التجاري الفاخر أمام ساحات الحرم</span>
-        <h2 class="text-3xl sm:text-5xl font-black mt-2 font-cairo" data-i18n="lease_sec_title">انضم إلى قائمة العلامات التجارية الرائدة</h2>
+        <span class="text-gold-400 font-bold text-sm tracking-widest uppercase" data-i18n="lease_sec_tag">فرصة استثمارية مميزة</span>
+        <h2 class="text-3xl sm:text-5xl font-black mt-2 font-cairo" data-i18n="lease_sec_title">انضم إلى عائلة مختارة مول</h2>
         <p class="text-gray-300 max-w-2xl mx-auto mt-4 text-sm sm:text-base" data-i18n="lease_sec_desc">
-          نوفر مساحات تجارية مرنة تبدأ من 45 متر مربع حتى 1200 متر مربع تناسب المعارض العالمية والمحلية، المكاتب الإدارية، العيادات، والمطاعم بالمنطقة المركزية.
+          مساحات تجارية مرنة ومناسبة لجميع أنواع الأنشطة التجارية والخدماتية بأسعار تنافسية.
         </p>
 
         <div class="mt-12 inline-flex flex-col sm:flex-row gap-4 justify-center">
           <button onclick="openLeaseModal()" class="px-8 py-4 rounded-2xl ruby-gradient-bg text-white font-bold text-lg shadow-xl hover:scale-105 transition">
-            <i class="fa-solid fa-paper-plane mr-2"></i> <span data-i18n="btn_submit_lease_app">تعبئة نموذج طلب التأجير</span>
+            <i class="fa-solid fa-paper-plane mr-2"></i> <span data-i18n="btn_submit_lease_app">تقديم طلب تأجير</span>
           </button>
+          <button onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})" class="px-8 py-4 rounded-2xl border border-gold-500 text-gold-400 font-bold text-lg hover:bg-gold-500/10 transition">
+            <i class="fa-solid fa-phone mr-2"></i> <span data-i18n="btn_call_us">اتصل بنا</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS/PROMOTIONS SECTION -->
+    <section class="py-20 bg-white dark:bg-charcoal-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-ruby-600 dark:text-gold-400 font-bold text-sm tracking-wider uppercase" data-i18n="events_subtitle">الفعاليات والعروض</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 font-cairo" data-i18n="events_title">أحدث الفعاليات والعروض</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Event 1 -->
+          <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-ruby-500 to-ruby-600 text-white p-6 hover:shadow-lg transition group">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold font-cairo group-hover:text-gold-300 transition">العروض الصيفية</h3>
+              <span class="badge-pulse inline-block w-3 h-3 rounded-full bg-gold-400"></span>
+            </div>
+            <p class="text-sm opacity-90 mb-4">خصومات تصل إلى 70% على جميع المتاجر والعلامات التجارية</p>
+            <div class="flex items-center gap-2 text-xs">
+              <i class="fas fa-calendar-alt"></i>
+              <span>متاح طول الصيف</span>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-gold-500 to-gold-600 text-white p-6 hover:shadow-lg transition group">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold font-cairo group-hover:text-ruby-300 transition">ليلة الجمعة</h3>
+              <span class="badge-pulse inline-block w-3 h-3 rounded-full bg-ruby-400"></span>
+            </div>
+            <p class="text-sm opacity-90 mb-4">عروض خاصة كل جمعة مع موسيقى حية وفعاليات عائلية</p>
+            <div class="flex items-center gap-2 text-xs">
+              <i class="fas fa-calendar-alt"></i>
+              <span>كل يوم جمعة</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -454,12 +909,12 @@
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl ruby-gradient-bg border border-gold-500 flex items-center justify-center text-gold-400 font-bold text-xl">م</div>
           <div>
-            <h3 class="text-lg font-bold text-white font-cairo" data-i18n="mall_name_ar">المختارة مول - المدينة المنورة</h3>
-            <p class="text-[10px] text-gray-400 font-montserrat uppercase tracking-wider">Al-Mukhtara Mall - Madinah</p>
+            <h3 class="text-lg font-bold text-white font-cairo" data-i18n="mall_name">مختارة مول</h3>
+            <p class="text-[10px] text-gray-400 font-montserrat uppercase tracking-wider">Mukhtara Mall</p>
           </div>
         </div>
         <p class="text-xs text-gray-400 leading-relaxed" data-i18n="footer_about">
-          إحدى أضخم وجهات الاستثمار التجاري بالمملكة العربية السعودية، بالمنطقة المركزية أمام ساحات المسجد النبوي الشريف مباشرة.
+          وجهة تجارية وخدمية رائدة تجمع بين الجودة والتنوع والأسعار المناسبة.
         </p>
       </div>
 
@@ -467,41 +922,41 @@
         <h4 class="text-sm font-bold text-gold-400 uppercase tracking-wider mb-4" data-i18n="footer_quick_links">روابط سريعة</h4>
         <ul class="space-y-2 text-xs">
           <li><a href="#home" class="hover:text-gold-400 transition" data-i18n="nav_home">الرئيسية</a></li>
-          <li><a href="#directory" class="hover:text-gold-400 transition" data-i18n="nav_shops">دليل المتاجر</a></li>
+          <li><a href="#vision" class="hover:text-gold-400 transition" data-i18n="nav_vision">الرؤية والرسالة</a></li>
           <li><a href="#blueprint" class="hover:text-gold-400 transition" data-i18n="nav_floors">مخطط الأدوار</a></li>
-          <li><a href="#leasing" class="hover:text-gold-400 transition" data-i18n="nav_leasing">إدارة التأجير</a></li>
+          <li><a href="#leasing" class="hover:text-gold-400 transition" data-i18n="nav_leasing">التأجير</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-sm font-bold text-gold-400 uppercase tracking-wider mb-4" data-i18n="footer_contact">التواصل والإدارة</h4>
+        <h4 class="text-sm font-bold text-gold-400 uppercase tracking-wider mb-4" data-i18n="footer_contact">التواصل</h4>
         <ul class="space-y-2 text-xs">
-          <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-gold-500"></i> <span>+966 9200 88888</span></li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-gold-500"></i> <span>leasing@almukhtaramall.sa</span></li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-gold-500"></i> <span data-i18n="footer_address">المملكة العربية السعودية - المدينة المنورة (المنطقة المركزية - أمام المسجد النبوي)</span></li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-gold-500"></i> <span>+966 1234 5678</span></li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-gold-500"></i> <span>info@mukhtara.sa</span></li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-gold-500"></i> <span data-i18n="footer_address">المملكة العربية السعودية</span></li>
         </ul>
       </div>
 
       <div>
         <h4 class="text-sm font-bold text-gold-400 uppercase tracking-wider mb-4" data-i18n="footer_hours">ساعات العمل</h4>
         <p class="text-xs text-gray-400" data-i18n="footer_hours_text">
-          المعارض والهايبرماركت: 09:00 ص - 12:00 منتصف الليل<br/>
-          المطاعم والسطح: 12:00 ظهراً - 02:00 صباحاً
+          من 09:00 صباحاً إلى منتصف الليل<br/>
+          يومياً بما فيها أيام الإجازات
         </p>
       </div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-gray-800 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p data-i18n="footer_copy">© 2026 جميع الحقوق محفوظة لـ المختارة مول (Al-Mukhtara Mall - Madinah).</p>
+      <p data-i18n="footer_copy">© 2024 مختارة مول - جميع الحقوق محفوظة</p>
       <div class="flex gap-4">
-        <a href="#" class="hover:text-gold-400"><i class="fa-brands fa-x-twitter text-base"></i></a>
-        <a href="#" class="hover:text-gold-400"><i class="fa-brands fa-instagram text-base"></i></a>
-        <a href="#" class="hover:text-gold-400"><i class="fa-brands fa-linkedin text-base"></i></a>
+        <a href="#" class="hover:text-gold-400 transition"><i class="fa-brands fa-x-twitter text-base"></i></a>
+        <a href="#" class="hover:text-gold-400 transition"><i class="fa-brands fa-instagram text-base"></i></a>
+        <a href="#" class="hover:text-gold-400 transition"><i class="fa-brands fa-linkedin text-base"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- MODAL FORM -->
+  <!-- LEASE FORM MODAL -->
   <div id="lease-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
     <div class="bg-white dark:bg-charcoal-900 border border-gold-500/30 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
       <button onclick="closeLeaseModal()" class="absolute left-6 top-6 text-gray-400 hover:text-ruby-600 dark:hover:text-gold-400 text-xl font-bold">
@@ -509,53 +964,53 @@
       </button>
 
       <div class="mb-6">
-        <span class="text-xs font-bold text-ruby-600 dark:text-gold-400 uppercase tracking-widest" data-i18n="modal_sub">إدارة التأجير التجاري - موقع المسجد النبوي</span>
-        <h3 class="text-2xl font-bold font-cairo mt-1" data-i18n="modal_title">طلب تقديم مساحة تجارية</h3>
-        <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="modal_desc">يرجى تعبئة البيانات التالية بدقة وسيقوم فريق الاستثمار والتأجير بالتواصل معكم خلال 24 ساعة.</p>
+        <span class="text-xs font-bold text-ruby-600 dark:text-gold-400 uppercase tracking-widest" data-i18n="modal_sub">إدارة التأجير</span>
+        <h3 class="text-2xl font-bold font-cairo mt-1" data-i18n="modal_title">طلب تأجير مساحة تجارية</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="modal_desc">سيتم التواصل معكم خلال 24 ساعة</p>
       </div>
 
       <form id="lease-form" onsubmit="handleLeaseSubmit(event)" class="space-y-4">
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-bold mb-1" data-i18n="lbl_biz_name">اسم العلامة التجارية / الشركة *</label>
-            <input type="text" id="biz-name" required placeholder="مثال: مقهى الشروق المختص" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
+            <label class="block text-xs font-bold mb-1" data-i18n="lbl_biz_name">اسم المشروع *</label>
+            <input type="text" id="biz-name" required placeholder="اسم المشروع" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
           </div>
           <div>
-            <label class="block text-xs font-bold mb-1" data-i18n="lbl_contact_person">اسم المسؤول *</label>
-            <input type="text" id="contact-name" required placeholder="الاسم الثلاثي" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
+            <label class="block text-xs font-bold mb-1" data-i18n="lbl_contact_person">اسم المتقدم *</label>
+            <input type="text" id="contact-name" required placeholder="الاسم الكامل" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
           </div>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-bold mb-1" data-i18n="lbl_phone">رقم الجوال (السعودية) *</label>
-            <input type="tel" id="phone-num" required pattern="^(05|5|\+9665)[0-9]{8}$" placeholder="05xxxxxxxx" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
+            <label class="block text-xs font-bold mb-1" data-i18n="lbl_phone">الجوال *</label>
+            <input type="tel" id="phone-num" required placeholder="05xxxxxxxx" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
           </div>
           <div>
             <label class="block text-xs font-bold mb-1" data-i18n="lbl_email">البريد الإلكتروني *</label>
-            <input type="email" id="email-addr" required placeholder="name@company.sa" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
+            <input type="email" id="email-addr" required placeholder="email@example.com" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
           </div>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-bold mb-1" data-i18n="lbl_category">نشاط المساحة *</label>
+            <label class="block text-xs font-bold mb-1" data-i18n="lbl_category">نوع النشاط *</label>
             <select id="space-cat" required class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
               <option value="fashion" data-i18n="opt_fashion">أزياء وموضة</option>
-              <option value="dining" data-i18n="opt_dining">مطعم / مقهى (السطح أو الفودكورت)</option>
-              <option value="electronics" data-i18n="opt_elec">إلكترونيات وهواتف</option>
-              <option value="perfumes" data-i18n="opt_perfume">عطور وعود شرقي</option>
-              <option value="services" data-i18n="opt_service">خدمات / صيدلية / صرافة</option>
+              <option value="dining" data-i18n="opt_dining">مطعم / مقهى</option>
+              <option value="electronics" data-i18n="opt_elec">إلكترونيات</option>
+              <option value="services" data-i18n="opt_service">خدمات</option>
             </select>
           </div>
           <div>
             <label class="block text-xs font-bold mb-1" data-i18n="lbl_floor_pref">الدور المفضل *</label>
             <select id="floor-pref" required class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500">
-              <option value="6" data-i18n="fl6_option">الدور السادس (مطاعم وإطلالة ساحات المسجد النبوي)</option>
-              <option value="4-5" data-i18n="fl45_option">الأدوار 4-5 (معارض أزياء فاخرة)</option>
-              <option value="2-3" data-i18n="fl23_option">الأدوار 2-3 (إلكترونيات وعطور)</option>
-              <option value="1" data-i18n="fl1_option">الدور الأول والأرضي (ترفيه وسينما)</option>
-              <option value="0" data-i18n="fl0_option">القبو (بجوار دانوب هايبرماركت)</option>
+              <option value="6">الدور السادس</option>
+              <option value="5">الدور الخامس</option>
+              <option value="4">الدور الرابع</option>
+              <option value="3">الدور الثالث</option>
+              <option value="2">الدور الثاني</option>
+              <option value="1">الدور الأول</option>
             </select>
           </div>
         </div>
@@ -563,25 +1018,26 @@
         <div>
           <div class="flex justify-between items-center mb-1">
             <label class="block text-xs font-bold" data-i18n="lbl_area">المساحة المطلوبة (متر مربع)</label>
-            <span id="area-val" class="text-xs font-extrabold text-ruby-600 dark:text-gold-400 font-mono">120 m²</span>
+            <span id="area-val" class="text-xs font-extrabold text-ruby-600 dark:text-gold-400 font-mono">100 m²</span>
           </div>
-          <input type="range" id="area-slider" min="30" max="800" step="10" value="120" oninput="document.getElementById('area-val').innerText = this.value + ' m²'" class="w-full accent-ruby-600 cursor-pointer">
+          <input type="range" id="area-slider" min="30" max="500" step="10" value="100" oninput="document.getElementById('area-val').innerText = this.value + ' m²'" class="w-full accent-ruby-600 cursor-pointer">
         </div>
 
         <div>
-          <label class="block text-xs font-bold mb-1" data-i18n="lbl_notes">ملاحظات إضافية / متطلبات خاصة</label>
-          <textarea id="notes" rows="2" placeholder="تجهيزات كهربائية، مداخل خدمة، جلسات خارجية..." class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500"></textarea>
+          <label class="block text-xs font-bold mb-1" data-i18n="lbl_notes">ملاحظات إضافية</label>
+          <textarea id="notes" rows="2" placeholder="متطلبات خاصة..." class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-slate-50 dark:bg-charcoal-800 text-sm focus:outline-none focus:border-ruby-500"></textarea>
         </div>
 
         <div id="form-feedback" class="hidden p-3 rounded-xl text-xs font-bold text-center"></div>
 
         <button type="submit" class="w-full py-3.5 rounded-xl ruby-gradient-bg text-white font-bold text-sm shadow-lg hover:opacity-95 transition">
-          <span data-i18n="btn_modal_submit">إرسال الطلب الآن</span>
+          <span data-i18n="btn_modal_submit">إرسال الطلب</span>
         </button>
       </form>
     </div>
   </div>
 
+  <!-- JAVASCRIPT SECTION -->
   <script>
     const i18n = {
       ar: {
@@ -589,286 +1045,256 @@
         contrast_toggle: "تباين عالٍ",
         font_toggle: "خط ميسر",
         dark_toggle: "الوضع الداكن",
-        mall_name_ar: "المختارة مول - المدينة المنورة",
-        mall_subtitle: "Al-Mukhtara Mall - Facing Al-Masjid An-Nabawi",
+        mall_name: "مختارة مول",
+        mall_tagline: "وجهة التسوق والخدمات الرائدة",
         nav_home: "الرئيسية",
-        nav_shops: "المتاجر",
+        nav_vision: "الرؤية والرسالة",
         nav_floors: "مخطط الأدوار",
-        nav_dining: "المطاعم والسطح",
-        nav_entertainment: "الترفيه",
-        nav_hypermarket: "الهايبرماركت",
-        nav_leasing: "بدأ التأجير",
-        btn_apply_lease: "قدم طلب التأجير",
-        hero_badge: "موقع استثنائي Premium+ | أمام ساحات المسجد النبوي الشريف مباشرة",
-        hero_title_1: "وجهة التسوق والترفيه الأفخم",
-        hero_title_2: "في قلب المدينة المنورة",
-        hero_desc: "المختارة مول صرح معماري فاخر يقع بالمنطقة المركزية مباشرة أمام ساحات المسجد النبوي الشريف بالمدينة المنورة. يتكون من 6 أدوار تجارية متكاملة + طابق قبو بمرسى خدمات وهايبرماركت عملاق، واجهة زجاجية فاخرة، ومطاعم إطلالة بالسطح. احجز مساحتك التجارية الآن.",
-        hero_cta_lease: "قدم طلب التأجير الآن",
-        hero_cta_blueprint: "استكشف المخطط 3D",
-        stat_floors: "طوابق تجارية وخدمية",
-        stat_area: "المساحة التأجيرية",
-        stat_stores: "معرض ومطعم فاخر",
-        render_caption_tag: "محاكاة معمارية فائقة الدقة - إطلالة الحرم",
-        render_caption_title: "الواجهة الزجاجية المطلة على المسجد النبوي",
-        render_caption_desc: "إضاءة طبيعية وتقسيم هندسي عصري يطل مباشراً على ساحات الحرم النبوي الشريف.",
-        bp_subtitle: "التوزيع المعماري للمشروع بالمنطقة المركزية",
-        bp_title: "مخطط الأدوار والأنشطة التجارية",
-        bp_desc: "اضغط على أي طابق للتعرف على طبيعة الأنشطة، المساحات المتاحة للتأجير، والشركاء الرئيسيين.",
-        fl6_name: "السطح البانورامي (Rooftop Lounge)",
-        fl6_short: "مطاعم فاخرة ومقاهي مع إطلالة بانورامية على المسجد النبوي",
-        fl45_name: "الأزياء والموضة العالمية",
-        fl45_short: "ملابس، مجوهرات، ساعات، حقائب",
-        fl23_name: "الإلكترونيات والعطور والتجميل",
-        fl23_short: "أجهزة ذكية، عود شرقي فاخر، مستحضرات تجميل",
-        fl1_name: "الترفيه، السينما وخدمات زوار الحرم",
-        fl1_short: "مجمع سينمائي، منطقة ألعاب، مراكز خدمة الزوار",
-        flb_name: "القبو: الهايبرماركت والمواقف",
-        flb_short: "Danube Hypermarket + مواقف مغطاة تسع 1500+ سيارة",
-        fl_status_limited: "تأجير محدود",
-        fl_status_open: "متاح للتأجير",
-        fl_status_full: "مكتمل تقريبًا",
-        fl_status_anchor: "مستأجر رئيسي",
-        dir_subtitle: "دليل العلامات التجارية - فرع الحرم النبوي",
-        dir_title: "المتاجر والشركاء الحاليون",
-        cat_all: "الكل",
-        cat_hyper: "الهايبرماركت",
-        cat_fashion: "الأزياء والموضة",
-        cat_dining: "المطاعم والسطح",
-        cat_elec: "الإلكترونيات والمكتبات",
-        cat_ent: "الترفيه والسينما",
-        roof_badge: "التجربة الاستثنائية - الدور السادس",
-        roof_title: "مطاعم فاخرة وجلسات خارجية مطلة على المسجد النبوي الشريف",
-        roof_desc: "تم تصميم السطح البانورامي ليحتضن أرقى المطاعم والمقاهي العالمية والمحلية المختصة، مع مساحات واسعة للجلسات المفتوحة والمظلات العصرية بإطلالة مباشرة وفريدة على ساحات ومآذن المسجد النبوي.",
-        roof_feat1: "إطلالة بانورامية روحانية 360 درجة على المسجد النبوي والمعالم المقدسة.",
-        roof_feat2: "مصاعد VIP مباشرة تصل إلى الدور السادس.",
-        roof_feat3: "مساحات خارجية مجهزة بأنظمة تكييف ورذاذ هواء عصري.",
-        roof_cta: "استأجر مساحتك بالسطح الآن",
-        anchor_hyper_tag: "المستأجر الرئيسي - القبو",
-        anchor_hyper_title: "دانوب هايبرماركت (Danube)",
-        anchor_hyper_desc: "يمتد الهايبرماركت على مساحة تتجاوز 6,200 متر مربع بالطابق السفلي مع دخول مباشر من مواقف السيارات لخدمة ضيوف وزوار الحرم النبوي بشكل يومي وسلس.",
-        hyper_space: "المساحة: 6,200 م²",
-        hyper_status: "تم التشغيل بنجاح ✓",
-        anchor_cinema_tag: "الترفيه العائلي - الدور الأول",
-        anchor_cinema_title: "فوكس سينما (VOX Cinemas) & Magic Planet",
-        anchor_cinema_desc: "10 شاشات عرض سينمائي حديثة بتقنية IMAX وصالات VIP، بالإضافة لمنطقة ألعاب مغطاة متكاملة للأطفال والعائلات بقلب المدينة المنورة.",
-        cinema_space: "10 صالات عرض سينمائي",
-        cinema_status: "جاهز للاستقبال ✓",
-        lease_sec_tag: "فرصتك للاستثمار التجاري الفاخر أمام ساحات الحرم",
-        lease_sec_title: "انضم إلى قائمة العلامات التجارية الرائدة",
-        lease_sec_desc: "نوفر مساحات تجارية مرنة تبدأ من 45 متر مربع حتى 1200 متر مربع تناسب المعارض العالمية والمحلية، المكاتب الإدارية، العيادات، والمطاعم بالمنطقة المركزية.",
-        btn_submit_lease_app: "تعبئة نموذج طلب التأجير",
-        footer_about: "إحدى أضخم وجهات الاستثمار التجاري بالمملكة العربية السعودية، بالمنطقة المركزية أمام ساحات المسجد النبوي الشريف مباشرة.",
+        nav_gallery: "الصور والفيديوهات",
+        nav_shops: "المتاجر",
+        nav_reviews: "التقييمات",
+        nav_leasing: "التأجير",
+        btn_apply_lease: "تقديم طلب",
+        hero_badge: "وجهة تجارية وخدمية رائدة",
+        hero_title_1: "مختارة مول",
+        hero_title_2: "تجربة تسوق متكاملة",
+        hero_desc: "مختارة مول وجهة تسوق متكاملة تجمع بين المتاجر الفاخرة، المطاعم المتنوعة، والخدمات الإدارية.",
+        hero_cta_lease: "تقديم طلب تأجير",
+        hero_cta_blueprint: "استكشف المخطط",
+        stat_floors: "طوابق تجارية",
+        stat_units: "وحدة تجارية",
+        stat_quality: "جودة عالية",
+        stat_visitors: "زائر شهري",
+        stat_satisfaction: "رضا العملاء",
+        stat_support: "دعم فني",
+        stat_brands: "علامة تجارية",
+        render_caption_tag: "تصميم معماري عصري",
+        render_caption_title: "بيئة تسوق متطورة",
+        render_caption_desc: "تصميم معماري حديث يجمع بين الفخامة والراحة",
+        vm_subtitle: "الهوية والقيم الأساسية",
+        vm_title: "رؤيتنا ورسالتنا",
+        vision_title: "الرؤية",
+        vision_text: "أن يكون مختارة مول وجهة تجارية وخدمية رائدة.",
+        mission_title: "الرسالة",
+        mission_text: "تقديم تجربة تسوق متكاملة مع دعم روّاد الأعمال.",
+        value_quality: "الجودة",
+        value_quality_desc: "معايير عالية في كل التفاصيل",
+        value_service: "الخدمة",
+        value_service_desc: "خدمة عملاء متميزة دائماً",
+        value_innovation: "الابتكار",
+        value_innovation_desc: "تطور مستمر وحداثة دائمة",
+        value_community: "المجتمع",
+        value_community_desc: "دعم الاقتصاد المحلي",
+        bp_subtitle: "التوزيع المعماري",
+        bp_title: "6 طوابق تجارية و 124 وحدة",
+        bp_desc: "اضغط على أي طابق لمعرفة المزيد",
+        fl6_name: "الدور السادس",
+        fl6_short: "20 وحدة - مطاعم ومقاهي",
+        fl5_name: "الدور الخامس",
+        fl5_short: "22 وحدة - موضة وأزياء",
+        fl4_name: "الدور الرابع",
+        fl4_short: "20 وحدة - متاجر متخصصة",
+        fl3_name: "الدور الثالث",
+        fl3_short: "18 وحدة - إلكترونيات",
+        fl2_name: "الدور الثاني",
+        fl2_short: "16 وحدة - خدمات",
+        fl1_name: "الدور الأول",
+        fl1_short: "18 وحدة - مطاعم",
+        fl_status_limited: "محدود",
+        fl_status_open: "متاح",
+        fl_status_full: "مكتمل",
+        gallery_subtitle: "الصور والفيديوهات",
+        gallery_title: "استكشف مختارة مول",
+        gallery_desc: "اطلع على أحدث صور من المول",
+        dir_subtitle: "دليل المتاجر",
+        dir_title: "متاجرنا والخدمات",
+        testimonials_subtitle: "آراء العملاء",
+        testimonials_title: "ما يقول عملاؤنا",
+        faq_subtitle: "الأسئلة الشائعة",
+        faq_title: "نجيب على أسئلتك",
+        faq_q1: "ما هي ساعات العمل الرسمية للمول؟",
+        faq_a1: "يفتح المول من الساعة 9:00 صباحاً إلى منتصف الليل يومياً.",
+        faq_q2: "هل يتوفر موقف سيارات مجاني؟",
+        faq_a2: "نعم، يتوفر موقف سيارات مجاني واسع مع أماكن مخصصة لذوي الاحتياجات الخاصة.",
+        faq_q3: "كيف يمكنني تقديم طلب تأجير مساحة تجارية؟",
+        faq_a3: "يمكنك تقديم الطلب عبر النموذج في الموقع أو التواصل معنا مباشرة.",
+        faq_q4: "هل توجد منطقة لعب الأطفال؟",
+        faq_a4: "نعم، يوجد منطقة لعب آمنة للأطفال مع إشراف كامل.",
+        faq_q5: "هل هناك برامج ولاء للعملاء؟",
+        faq_a5: "نعم، برنامج عضوية حصري يوفر عروض خاصة وخصومات.",
+        events_subtitle: "الفعاليات والعروض",
+        events_title: "أحدث الفعاليات والعروض",
+        lease_sec_tag: "فرصة استثمارية مميزة",
+        lease_sec_title: "انضم إلى عائلة مختارة مول",
+        lease_sec_desc: "مساحات تجارية مرنة ومناسبة لجميع الأنشطة",
+        btn_submit_lease_app: "تقديم طلب تأجير",
+        btn_call_us: "اتصل بنا",
+        footer_about: "وجهة تجارية وخدمية رائدة تجمع بين الجودة والتنوع والأسعار المناسبة.",
         footer_quick_links: "روابط سريعة",
-        footer_contact: "التواصل والإدارة",
-        footer_address: "المملكة العربية السعودية - المدينة المنورة (المنطقة المركزية - أمام المسجد النبوي)",
+        footer_contact: "التواصل",
+        footer_address: "المملكة العربية السعودية",
         footer_hours: "ساعات العمل",
-        footer_hours_text: "المعارض والهايبرماركت: 09:00 ص - 12:00 منتصف الليل | المطاعم والسطح: 12:00 ظهراً - 02:00 صباحاً",
-        footer_copy: "© 2026 جميع الحقوق محفوظة لـ المختارة مول (Al-Mukhtara Mall - Madinah).",
-        modal_sub: "إدارة التأجير التجاري - موقع المسجد النبوي",
-        modal_title: "طلب تقديم مساحة تجارية",
-        modal_desc: "يرجى تعبئة البيانات التالية بدقة وسيقوم فريق الاستثمار والتأجير بالتواصل معكم خلال 24 ساعة.",
-        lbl_biz_name: "اسم العلامة التجارية / الشركة *",
-        lbl_contact_person: "اسم المسؤول *",
-        lbl_phone: "رقم الجوال (السعودية) *",
+        footer_hours_text: "من 09:00 صباحاً إلى منتصف الليل يومياً",
+        footer_copy: "© 2024 مختارة مول - جميع الحقوق محفوظة",
+        modal_sub: "إدارة التأجير",
+        modal_title: "طلب تأجير مساحة تجارية",
+        modal_desc: "سيتم التواصل معكم خلال 24 ساعة",
+        lbl_biz_name: "اسم المشروع *",
+        lbl_contact_person: "اسم المتقدم *",
+        lbl_phone: "الجوال *",
         lbl_email: "البريد الإلكتروني *",
-        lbl_category: "نشاط المساحة *",
+        lbl_category: "نوع النشاط *",
         opt_fashion: "أزياء وموضة",
-        opt_dining: "مطعم / مقهى (السطح أو الفودكورت)",
-        opt_elec: "إلكترونيات وهواتف",
-        opt_perfume: "عطور وعود شرقي",
-        opt_service: "خدمات / صيدلية / صرافة",
+        opt_dining: "مطعم / مقهى",
+        opt_elec: "إلكترونيات",
+        opt_service: "خدمات",
         lbl_floor_pref: "الدور المفضل *",
-        fl6_option: "الدور السادس (مطاعم وإطلالة ساحات المسجد النبوي)",
-        fl45_option: "الأدوار 4-5 (معارض أزياء فاخرة)",
-        fl23_option: "الأدوار 2-3 (إلكترونيات وعطور)",
-        fl1_option: "الدور الأول والأرضي (ترفيه وسينما)",
-        fl0_option: "القبو (بجوار دانوب هايبرماركت)",
-        lbl_area: "المساحة المطلوبة (متر مربع)",
-        lbl_notes: "ملاحظات إضافية / متطلبات خاصة",
-        btn_modal_submit: "إرسال الطلب الآن"
+        lbl_area: "المساحة المطلوبة",
+        lbl_notes: "ملاحظات إضافية",
+        btn_modal_submit: "إرسال الطلب"
       },
       en: {
         access_title: "Accessibility Tools",
         contrast_toggle: "High Contrast",
         font_toggle: "Dyslexic Font",
         dark_toggle: "Dark Mode",
-        mall_name_ar: "Al-Mukhtara Mall - Madinah",
-        mall_subtitle: "المختارة مول - أمام المسجد النبوي",
+        mall_name: "Mukhtara Mall",
+        mall_tagline: "Your Premium Shopping Destination",
         nav_home: "Home",
+        nav_vision: "Vision & Mission",
+        nav_floors: "Floors",
+        nav_gallery: "Gallery",
         nav_shops: "Directory",
-        nav_floors: "Floors 3D",
-        nav_dining: "Dining & Rooftop",
-        nav_entertainment: "Entertainment",
-        nav_hypermarket: "Hypermarket",
-        nav_leasing: "Leasing Open",
-        btn_apply_lease: "Apply for Lease",
-        hero_badge: "Prime Location Premium+ | Direct Front Facing Al-Masjid An-Nabawi",
-        hero_title_1: "The Premier Shopping & Dining",
-        hero_title_2: "Destination Facing Al-Masjid An-Nabawi",
-        hero_desc: "Al-Mukhtara Mall Madinah is a landmark commercial development located in the Central Area directly facing Al-Masjid An-Nabawi plaza. Featuring 6 commercial storeys + Basement Hypermarket, glass curtain walls, and rooftop dining with Haram vistas.",
-        hero_cta_lease: "Apply for Lease Now",
-        hero_cta_blueprint: "Explore 3D Blueprint",
-        stat_floors: "Commercial Levels",
-        stat_area: "Leasable GLA (m²)",
-        stat_stores: "Stores & Restaurants",
-        render_caption_tag: "Ultra-High Precision Architectural Render",
-        render_caption_title: "Glass Curtain Facade Facing Prophet's Mosque",
-        render_caption_desc: "Modern structural design with bronze-gold accents overlooking Al-Masjid An-Nabawi plaza.",
-        bp_subtitle: "Architectural Layout in Central Area",
-        bp_title: "Floor Breakdown & Zoned Activities",
-        bp_desc: "Click on any level to view zoning, available lease units, and major anchor tenants.",
-        fl6_name: "6th Floor: Rooftop Terrace & Haram Vistas",
-        fl6_short: "Fine dining, specialty cafes overlooking Al-Masjid An-Nabawi",
-        fl45_name: "Floors 4 & 5: Luxury Fashion & Apparel",
-        fl45_short: "International fashion brands, jewelry, watches",
-        fl23_name: "Floors 2 & 3: Electronics & Oud Fragrance",
-        fl23_short: "Smart tech, Jarir, Arabian Oud, cosmetics",
-        fl1_name: "Ground & 1st Floor: Cinema & Playland",
-        fl1_short: "VOX Cinemas IMAX, Magic Planet, Visitor Centers",
-        flb_name: "Basement: Danube Hypermarket & Parking",
-        flb_short: "6,200 sqm Hypermarket + 1,500 Covered Parking Bays",
-        fl_status_limited: "Limited Units",
-        fl_status_open: "Leasing Open",
-        fl_status_full: "Almost Full",
-        fl_status_anchor: "Anchor Operating",
-        dir_subtitle: "Brand Directory - Prophet's Mosque Branch",
-        dir_title: "Current Retailers & Anchor Tenants",
-        cat_all: "All",
-        cat_hyper: "Hypermarket",
-        cat_fashion: "Fashion & Luxury",
-        cat_dining: "Dining & Rooftop",
-        cat_elec: "Electronics & Books",
-        cat_ent: "Entertainment & Cinema",
-        roof_badge: "Exclusive Experience - 6th Floor",
-        roof_title: "Rooftop Fine Dining Facing Al-Masjid An-Nabawi",
-        roof_desc: "Designed to host premium culinary concepts and specialty roasters with panoramic views over the minarets and plazas of the Prophet's Mosque.",
-        roof_feat1: "360-Degree Panoramic View over Al-Masjid An-Nabawi.",
-        roof_feat2: "Express High-Speed VIP Elevators.",
-        roof_feat3: "Climate-controlled outdoor terrace seating.",
-        roof_cta: "Lease Rooftop Unit Now",
-        anchor_hyper_tag: "Basement Anchor Tenant",
-        anchor_hyper_title: "Danube Hypermarket",
-        anchor_hyper_desc: "Spanning over 6,200 sqm in the basement level serving visitors and residents of Madinah's Central Area.",
-        hyper_space: "GLA: 6,200 m²",
-        hyper_status: "Operating Successfully ✓",
-        anchor_cinema_tag: "Level 1 Family Hub",
-        anchor_cinema_title: "VOX Cinemas & Magic Planet",
-        anchor_cinema_desc: "10-screen multiplex with IMAX & VIP auditoriums in the heart of Madinah.",
-        cinema_space: "10 Multiplex Auditoriums",
-        cinema_status: "Open to Public ✓",
-        lease_sec_tag: "Commercial Opportunities",
-        lease_sec_title: "Join Premier Global & Regional Brands",
-        lease_sec_desc: "Offering flexible retail spaces from 45 sqm to 1,200 sqm tailored for flagship stores, restaurants, and showrooms facing Al-Masjid An-Nabawi.",
-        btn_submit_lease_app: "Fill Lease Application Form",
-        footer_about: "A landmark commercial development in Madinah's Central Area directly facing Al-Masjid An-Nabawi.",
+        nav_reviews: "Reviews",
+        nav_leasing: "Leasing",
+        btn_apply_lease: "Apply",
+        hero_badge: "A Premier Commercial Destination",
+        hero_title_1: "Mukhtara Mall",
+        hero_title_2: "Complete Shopping Experience",
+        hero_desc: "Mukhtara Mall is a comprehensive shopping destination combining luxury stores, diverse restaurants, and advanced administrative services.",
+        hero_cta_lease: "Submit Lease Request",
+        hero_cta_blueprint: "Explore Layout",
+        stat_floors: "Commercial Floors",
+        stat_units: "Commercial Units",
+        stat_quality: "High Quality",
+        stat_visitors: "Monthly Visitors",
+        stat_satisfaction: "Customer Satisfaction",
+        stat_support: "Technical Support",
+        stat_brands: "Brands",
+        render_caption_tag: "Modern Luxury Design",
+        render_caption_title: "Advanced Shopping Environment",
+        render_caption_desc: "Modern architectural design combining luxury and comfort",
+        vm_subtitle: "Identity and Core Values",
+        vm_title: "Our Vision & Mission",
+        vision_title: "Vision",
+        vision_text: "To be a leading commercial and service destination.",
+        mission_title: "Mission",
+        mission_text: "Providing an integrated shopping experience supporting entrepreneurs.",
+        value_quality: "Quality",
+        value_quality_desc: "High standards in every detail",
+        value_service: "Service",
+        value_service_desc: "Outstanding customer service",
+        value_innovation: "Innovation",
+        value_innovation_desc: "Continuous development",
+        value_community: "Community",
+        value_community_desc: "Supporting local economy",
+        bp_subtitle: "Architectural Layout",
+        bp_title: "6 Commercial Floors with 124 Units",
+        bp_desc: "Click on any floor to learn more",
+        fl6_name: "Floor 6",
+        fl6_short: "20 units - Restaurants & Cafes",
+        fl5_name: "Floor 5",
+        fl5_short: "22 units - Fashion & Apparel",
+        fl4_name: "Floor 4",
+        fl4_short: "20 units - Specialty Stores",
+        fl3_name: "Floor 3",
+        fl3_short: "18 units - Electronics",
+        fl2_name: "Floor 2",
+        fl2_short: "16 units - Services",
+        fl1_name: "Floor 1",
+        fl1_short: "18 units - Dining",
+        fl_status_limited: "Limited",
+        fl_status_open: "Available",
+        fl_status_full: "Full",
+        gallery_subtitle: "Photos & Videos",
+        gallery_title: "Explore Mukhtara Mall",
+        gallery_desc: "View latest photos from the mall",
+        dir_subtitle: "Store Directory",
+        dir_title: "Our Stores & Services",
+        testimonials_subtitle: "Customer Reviews",
+        testimonials_title: "What Our Customers Say",
+        faq_subtitle: "Frequently Asked Questions",
+        faq_title: "We Answer Your Questions",
+        faq_q1: "What are the mall's official working hours?",
+        faq_a1: "The mall is open from 9:00 AM to midnight daily.",
+        faq_q2: "Is there free parking available?",
+        faq_a2: "Yes, we offer spacious free parking with dedicated spots for people with disabilities.",
+        faq_q3: "How can I submit a lease request?",
+        faq_a3: "You can submit a request through our website form or contact us directly.",
+        faq_q4: "Is there a children's play area?",
+        faq_a4: "Yes, we have a safe children's play area with full supervision.",
+        faq_q5: "Are there loyalty programs?",
+        faq_a5: "Yes, we offer exclusive membership programs with special offers.",
+        events_subtitle: "Events & Offers",
+        events_title: "Latest Events & Promotions",
+        lease_sec_tag: "Premium Investment Opportunity",
+        lease_sec_title: "Join Mukhtara Mall Family",
+        lease_sec_desc: "Flexible commercial spaces for all types of business activities",
+        btn_submit_lease_app: "Submit Lease Request",
+        btn_call_us: "Call Us",
+        footer_about: "A leading commercial and service destination combining quality, variety, and competitive prices.",
         footer_quick_links: "Quick Links",
-        footer_contact: "Contact & Management",
-        footer_address: "Central Area - Facing Al-Masjid An-Nabawi, Madinah, Saudi Arabia",
-        footer_hours: "Operating Hours",
-        footer_hours_text: "Stores & Hypermarket: 09:00 AM - 12:00 Midnight | Rooftop Dining: 12:00 PM - 02:00 AM",
-        footer_copy: "© 2026 Al-Mukhtara Mall Madinah. All Rights Reserved.",
-        modal_sub: "Commercial Leasing Portal - Prophet's Mosque Branch",
-        modal_title: "Submit Leasing Application",
-        modal_desc: "Please fill in your commercial details. Our investment team will respond within 24 hours.",
-        lbl_biz_name: "Brand / Business Name *",
-        lbl_contact_person: "Contact Person *",
-        lbl_phone: "Mobile Number (KSA) *",
+        footer_contact: "Contact",
+        footer_address: "Kingdom of Saudi Arabia",
+        footer_hours: "Working Hours",
+        footer_hours_text: "From 9:00 AM to Midnight Daily",
+        footer_copy: "© 2024 Mukhtara Mall - All Rights Reserved",
+        modal_sub: "Leasing Management",
+        modal_title: "Commercial Space Lease Request",
+        modal_desc: "We will contact you within 24 hours",
+        lbl_biz_name: "Project Name *",
+        lbl_contact_person: "Full Name *",
+        lbl_phone: "Mobile *",
         lbl_email: "Email Address *",
-        lbl_category: "Business Category *",
+        lbl_category: "Business Type *",
         opt_fashion: "Fashion & Apparel",
-        opt_dining: "Restaurant / Cafe (Rooftop/Foodcourt)",
-        opt_elec: "Electronics & Tech",
-        opt_perfume: "Fragrance & Arabian Oud",
-        opt_service: "Services / Pharmacy / Banking",
-        lbl_floor_pref: "Preferred Floor Level *",
-        fl6_option: "6th Floor (Rooftop Terrace Dining Facing Mosque)",
-        fl45_option: "Floors 4-5 (Luxury Fashion Showrooms)",
-        fl23_option: "Floors 2-3 (Electronics & Beauty)",
-        fl1_option: "Ground & Level 1 (Cinema & Family)",
-        fl0_option: "Basement (Adjacent to Danube Hypermarket)",
-        lbl_area: "Requested Space Area (sqm)",
-        lbl_notes: "Additional Notes / Specific Needs",
-        btn_modal_submit: "Submit Application Now"
+        opt_dining: "Restaurant / Cafe",
+        opt_elec: "Electronics",
+        opt_service: "Services",
+        lbl_floor_pref: "Preferred Floor *",
+        lbl_area: "Required Area",
+        lbl_notes: "Additional Notes",
+        btn_modal_submit: "Submit Request"
       }
     };
 
     let currentLang = 'ar';
     let currentFloor = 6;
-    let currentCatFilter = 'all';
 
     const floorData = {
-      6: {
-        titleAr: "الدور السادس - السطح البانورامي للمطاعم ومطل المسجد النبوي",
-        titleEn: "6th Floor - Rooftop Terrace & Fine Dining Facing Al-Masjid An-Nabawi",
-        descAr: "طابق مفتوح عصري مخصص للمطاعم العالمية، المقاهي المختصة، والجلسات البانورامية المفتوحة المطلة مباشرة على ساحات ومآذن المسجد النبوي الشريف.",
-        descEn: "Panoramic open-air level reserved for fine dining, specialty cafes, and outdoor pergolas with direct vistas of Prophet's Mosque.",
-        availableUnits: 4,
-        totalGLA: "4,500 m²",
-        occupancy: "78%",
-        anchors: ["L'Entrecôte Cafe", "Overdose Coffee", "Signatures Rooftop", "Bateel Lounge"]
-      },
-      5: {
-        titleAr: "الدور الرابع والخامس - الأزياء والموضة الفاخرة",
-        titleEn: "Floors 4 & 5 - Luxury Fashion & Apparel",
-        descAr: "تجمع لأرقى الماركات العالمية والمحلية في الملابس، المجوهرات، الساعات والأحذية مع ممرات واسعة وإضاءة طبيعية.",
-        descEn: "Flagship luxury fashion brands, jewelry boutiques, high-end watches, and footwear.",
-        availableUnits: 12,
-        totalGLA: "11,000 m²",
-        occupancy: "65%",
-        anchors: ["Zara Flagship", "Massimo Dutti", "Mango", "Swarovski", "L'Azurite"]
-      },
-      3: {
-        titleAr: "الدور الثاني والثالث - الإلكترونيات، العود فاخر ومستحضرات التجميل",
-        titleEn: "Floors 2 & 3 - Electronics, Premium Oud & Beauty",
-        descAr: "مركز الأجهزة الذكية والتقنية، أرقى دور العطور الشرقية والعود الفاخر لزوار الحرم النبوي، والتجميل.",
-        descEn: "Tech hub, smart home devices, premium Arabian Oud perfumes, Sephora, and cosmetics.",
-        availableUnits: 8,
-        totalGLA: "12,500 m²",
-        occupancy: "82%",
-        anchors: ["Jarir Bookstore", "Sephora", "Arabian Oud", "Abdul Samad Al Qurashi", "Virgin Megastore"]
-      },
-      1: {
-        titleAr: "الدور الأرضي والأول - السينما والترفيه ومراكز خدمة الزوار",
-        titleEn: "Ground & Level 1 - VOX Cinema, Family Entertainment & Visitor Hub",
-        descAr: "القلب النابض للمول يضم مجمع فوكس سينما، صالة مجد للألعاب، ومراكز الاستقبال والخدمة لكبار الشخصيات وزوار المدينة.",
-        descEn: "The mall's entertainment heartbeat featuring VOX Cinemas IMAX multiplex and Magic Planet arcade.",
-        availableUnits: 2,
-        totalGLA: "11,500 m²",
-        occupancy: "94%",
-        anchors: ["VOX Cinemas (10 Screens)", "Magic Planet", "Starbucks Reserve", "Molten Chocolate"]
-      },
-      0: {
-        titleAr: "القبو - دانوب هايبرماركت والمواقف المغطاة",
-        titleEn: "Basement - Danube Hypermarket & Covered Parking",
-        descAr: "المستأجر الرئيسي للسلع الغذائية والاستهلاكية اليومية مع مواقف تسع أكثر من 1,500 سيارة ومصاعد مباشرة للساحات.",
-        descEn: "Massive anchor grocery store with 1,500+ covered parking spaces and valet stations.",
-        availableUnits: 1,
-        totalGLA: "8,000 m²",
-        occupancy: "98%",
-        anchors: ["Danube Hypermarket", "Al Dawaa Pharmacy", "Enjaz Currency Exchange"]
-      }
+      6: { titleAr: "الدور السادس - مطاعم ومقاهي متخصصة", titleEn: "6th Floor - Specialty Restaurants & Cafes", descAr: "دور عصري مخصص للمطاعم والمقاهي المتخصصة", descEn: "Modern floor for specialty restaurants and cafes", units: 20 },
+      5: { titleAr: "الدور الخامس - الأزياء والموضة", titleEn: "5th Floor - Fashion & Apparel", descAr: "أرقى العلامات التجارية العالمية والمحلية", descEn: "Premium international and local brands", units: 22 },
+      4: { titleAr: "الدور الرابع - متاجر متخصصة", titleEn: "4th Floor - Specialty Stores", descAr: "متاجر متخصصة في مختلف المجالات", descEn: "Specialty stores in various fields", units: 20 },
+      3: { titleAr: "الدور الثالث - إلكترونيات وعطور", titleEn: "3rd Floor - Electronics & Fragrances", descAr: "أحدث الأجهزة الإلكترونية والعطور الفاخرة", descEn: "Latest electronics and premium fragrances", units: 18 },
+      2: { titleAr: "الدور الثاني - خدمات متعددة", titleEn: "2nd Floor - Multiple Services", descAr: "خدمات متنوعة وضرورية", descEn: "Diverse and essential services", units: 16 },
+      1: { titleAr: "الدور الأول - مطاعم والأرضي", titleEn: "1st Floor - Dining & Ground Level", descAr: "مطاعم وخدمات بالمستوى الأرضي", descEn: "Restaurants and ground level services", units: 18 }
     };
 
-    const directoryStores = [
-      { nameAr: "دانوب هايبرماركت", nameEn: "Danube Hypermarket", cat: "hypermarket", floor: "القبو (Basement)", logo: "fa-cart-shopping", bg: "bg-emerald-600" },
-      { nameAr: "فوكس سينما IMAX", nameEn: "VOX Cinemas", cat: "entertainment", floor: "الدور الأول (Level 1)", logo: "fa-film", bg: "bg-ruby-700" },
-      { nameAr: "مكتبة جرير", nameEn: "Jarir Bookstore", cat: "electronics", floor: "الدور الثاني (Level 2)", logo: "fa-book-open", bg: "bg-blue-600" },
-      { nameAr: "سيفورا التجميل", nameEn: "Sephora Beauty", cat: "electronics", floor: "الدور الثالث (Level 3)", logo: "fa-wand-magic-sparkles", bg: "bg-black" },
-      { nameAr: "العربية للعود", nameEn: "Arabian Oud", cat: "electronics", floor: "الدور الثاني (Level 2)", logo: "fa-spray-can", bg: "bg-amber-700" },
-      { nameAr: "زارا للأزياء", nameEn: "Zara Fashion", cat: "fashion", floor: "الدور الرابع (Level 4)", logo: "fa-shirt", bg: "bg-charcoal-800" },
-      { nameAr: "ماسيمو دوتي", nameEn: "Massimo Dutti", cat: "fashion", floor: "الدور الخامس (Level 5)", logo: "fa-user-tie", bg: "bg-stone-700" },
-      { nameAr: "مطعم السطح البانورامي", nameEn: "Signatures Rooftop", cat: "dining", floor: "الدور السادس (Rooftop)", logo: "fa-utensils", bg: "bg-gold-600" },
-      { nameAr: "أوفر دوز كافيه", nameEn: "Overdose Coffee", cat: "dining", floor: "الدور السادس (Rooftop)", logo: "fa-mug-hot", bg: "bg-amber-900" },
-      { nameAr: "ماجيك بلانيت للأطفال", nameEn: "Magic Planet", cat: "entertainment", floor: "الدور الأول (Level 1)", logo: "fa-gamepad", bg: "bg-purple-600" },
-      { nameAr: "ستاربكس ريزيرف", nameEn: "Starbucks Reserve", cat: "dining", floor: "الدور الأرضي (Ground)", logo: "fa-coffee", bg: "bg-emerald-800" }
+    const galleryData = [
+      { titleAr: "الطابق الأول", titleEn: "First Floor", descAr: "اكتشف مجموعتنا من المطاعم والخدمات", descEn: "Discover our collection of restaurants and services" },
+      { titleAr: "الطابق الثاني", titleEn: "Second Floor", descAr: "خدمات متعددة وحديثة", descEn: "Multiple modern services" },
+      { titleAr: "الطابق الثالث", titleEn: "Third Floor", descAr: "أحدث الإلكترونيات والعطور", descEn: "Latest electronics and fragrances" },
+      { titleAr: "الطابق الرابع", titleEn: "Fourth Floor", descAr: "متاجر متخصصة فاخرة", descEn: "Premium specialty stores" },
+      { titleAr: "الطابق الخامس", titleEn: "Fifth Floor", descAr: "أفضل العلامات التجارية للأزياء", descEn: "Best fashion brands" },
+      { titleAr: "الطابق السادس", titleEn: "Sixth Floor", descAr: "مطاعم ومقاهي متخصصة", descEn: "Specialty restaurants and cafes" }
     ];
 
     window.addEventListener('DOMContentLoaded', () => {
       selectFloor(6);
-      renderDirectory();
       setupLanguageToggle();
       setupAccessibility();
       setupMobileMenu();
+      setupFAQ();
     });
 
     function selectFloor(floorNum) {
@@ -885,95 +1311,16 @@
       const desc = currentLang === 'ar' ? data.descAr : data.descEn;
 
       panel.innerHTML = `
-        <div class="space-y-6 animate-fade-in">
-          <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4">
-            <div>
-              <span class="text-xs font-bold text-ruby-600 dark:text-gold-400 uppercase tracking-widest">${currentLang === 'ar' ? 'تفاصيل الدور المختارة - موقع الحرم' : 'Selected Level Details'}</span>
-              <h3 class="text-2xl font-black font-cairo mt-1">${title}</h3>
-            </div>
-            <div class="text-end">
-              <span class="text-xs text-gray-400 block">${currentLang === 'ar' ? 'الوحدات المتاحة' : 'Leasable Units'}</span>
-              <span class="text-2xl font-extrabold text-ruby-600 dark:text-gold-400">${data.availableUnits}</span>
-            </div>
-          </div>
-
-          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">${desc}</p>
-
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 py-2">
-            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800">
-              <span class="text-[10px] text-gray-400 block">${currentLang === 'ar' ? 'المساحة التأجيرية' : 'Total Level GLA'}</span>
-              <span class="text-sm font-bold font-mono">${data.totalGLA}</span>
-            </div>
-            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800">
-              <span class="text-[10px] text-gray-400 block">${currentLang === 'ar' ? 'نسبة الإشغال الحالي' : 'Current Occupancy'}</span>
-              <span class="text-sm font-bold text-emerald-500">${data.occupancy}</span>
-            </div>
-            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800">
-              <span class="text-[10px] text-gray-400 block">${currentLang === 'ar' ? 'النشاط الرئيسي' : 'Primary Zone'}</span>
-              <span class="text-sm font-bold text-ruby-600 dark:text-gold-400">${floorNum === 6 ? 'Dining' : floorNum >= 4 ? 'Fashion' : floorNum >= 2 ? 'Retail' : floorNum === 1 ? 'Cinema' : 'Hyper'}</span>
-            </div>
-          </div>
-
-          <div>
-            <h4 class="text-xs font-bold text-gray-400 mb-3 uppercase tracking-wider">${currentLang === 'ar' ? 'أبرز المستأجرين والشركاء في هذا الدور' : 'Key Tenants & Partners on this Level'}</h4>
-            <div class="flex flex-wrap gap-2">
-              ${data.anchors.map(anchor => `<span class="px-3 py-1.5 rounded-xl bg-gold-500/10 text-gold-600 dark:text-gold-300 border border-gold-500/30 text-xs font-bold"><i class="fa-solid fa-store text-[10px] mr-1"></i> ${anchor}</span>`).join('')}
-            </div>
-          </div>
-
-          <div class="pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row gap-3">
-            <button onclick="openLeaseModal('${title}')" class="flex-1 py-3 rounded-xl ruby-gradient-bg text-white font-bold text-sm shadow-md hover:opacity-95 transition text-center">
-              <i class="fa-solid fa-key text-gold-400 mr-2"></i> ${currentLang === 'ar' ? 'طلب حجز مساحة في هذا الدور' : 'Reserve Space on this Level'}
-            </button>
-          </div>
+        <div class="space-y-4 animate-fade-in">
+          <h3 class="text-2xl font-black font-cairo">${title}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300">${desc}</p>
+          <div class="pt-2 text-sm"><strong>${currentLang === 'ar' ? 'عدد الوحدات' : 'Number of Units'}:</strong> <span class="stat-counter">${data.units}</span></div>
+          <button onclick="openLeaseModal('${title}')" class="w-full py-3 rounded-xl ruby-gradient-bg text-white font-bold text-sm shadow-md hover:opacity-95 transition">
+            <i class="fa-solid fa-key text-gold-400 mr-2"></i> ${currentLang === 'ar' ? 'طلب حجز مساحة' : 'Reserve Space'}
+          </button>
         </div>
       `;
     }
-
-    function renderDirectory() {
-      const grid = document.getElementById('directory-grid');
-      const searchQuery = document.getElementById('dir-search').value.toLowerCase();
-
-      const filtered = directoryStores.filter(store => {
-        const matchesCat = currentCatFilter === 'all' || store.cat === currentCatFilter;
-        const name = currentLang === 'ar' ? store.nameAr : store.nameEn;
-        return matchesCat && name.toLowerCase().includes(searchQuery);
-      });
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `<div class="col-span-full py-12 text-center text-gray-400"><i class="fa-solid fa-store-slash text-4xl mb-3"></i><p>${currentLang === 'ar' ? 'لم يتم العثور على متاجر تطابق البحث' : 'No stores found.'}</p></div>`;
-        return;
-      }
-
-      grid.innerHTML = filtered.map(store => `
-        <div class="p-5 rounded-2xl bg-white dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition flex items-center justify-between group">
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-xl ${store.bg} text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-105 transition"><i class="fa-solid ${store.logo}"></i></div>
-            <div>
-              <h4 class="font-bold text-base font-cairo">${currentLang === 'ar' ? store.nameAr : store.nameEn}</h4>
-              <p class="text-xs text-gray-400">${store.floor}</p>
-            </div>
-          </div>
-          <span class="w-2 h-2 rounded-full bg-emerald-500" title="Operating"></span>
-        </div>
-      `).join('');
-    }
-
-    function filterCategory(cat) {
-      currentCatFilter = cat;
-      document.querySelectorAll('.cat-filter-btn').forEach(btn => {
-        if (btn.dataset.cat === cat) {
-          btn.classList.remove('bg-gray-100', 'dark:bg-charcoal-800', 'text-gray-600', 'dark:text-gray-300');
-          btn.classList.add('bg-ruby-600', 'text-white');
-        } else {
-          btn.classList.remove('bg-ruby-600', 'text-white');
-          btn.classList.add('bg-gray-100', 'dark:bg-charcoal-800', 'text-gray-600', 'dark:text-gray-300');
-        }
-      });
-      renderDirectory();
-    }
-
-    document.getElementById('dir-search').addEventListener('input', renderDirectory);
 
     function setupLanguageToggle() {
       const btn = document.getElementById('lang-switcher');
@@ -990,7 +1337,6 @@
         });
 
         selectFloor(currentFloor);
-        renderDirectory();
       });
     }
 
@@ -1004,10 +1350,59 @@
       document.getElementById('btn-dark-mode').addEventListener('click', () => { document.documentElement.classList.toggle('dark'); });
     }
 
+    function setupFAQ() {
+      document.querySelectorAll('.faq-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const answer = btn.nextElementSibling;
+          const chevron = btn.querySelector('i');
+          const isOpen = !answer.classList.contains('hidden');
+          
+          document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+          document.querySelectorAll('.faq-button i').forEach(i => i.classList.remove('rotate-180'));
+          
+          if (!isOpen) {
+            answer.classList.remove('hidden');
+            chevron.classList.add('rotate-180');
+          }
+        });
+      });
+    }
+
+    function filterDirectory() {
+      const searchTerm = document.getElementById('search-input').value.toLowerCase();
+      const categoryTerm = document.getElementById('category-filter').value;
+      
+      document.querySelectorAll('.store-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        const category = item.getAttribute('data-category');
+        
+        const matchesSearch = text.includes(searchTerm);
+        const matchesCategory = !categoryTerm || category === categoryTerm;
+        
+        item.style.display = (matchesSearch && matchesCategory) ? '' : 'none';
+      });
+    }
+
+    function openGalleryModal(index) {
+      const data = galleryData[index];
+      const modal = document.getElementById('gallery-modal');
+      const title = document.getElementById('modal-title');
+      const desc = document.getElementById('modal-desc');
+      
+      title.innerText = currentLang === 'ar' ? data.titleAr : data.titleEn;
+      desc.innerText = currentLang === 'ar' ? data.descAr : data.descEn;
+      
+      modal.classList.remove('hidden');
+    }
+
+    function closeGalleryModal() {
+      document.getElementById('gallery-modal').classList.add('hidden');
+    }
+
     function openLeaseModal(floorPrefText = '') {
       document.getElementById('lease-modal').classList.remove('hidden');
       if (floorPrefText) {
-        document.getElementById('notes').value = `${currentLang === 'ar' ? 'الاهتمام بالدور: ' : 'Interested Level: '} ${floorPrefText}`;
+        document.getElementById('notes').value = `${currentLang === 'ar' ? 'الاهتمام بـ: ' : 'Interested in: '} ${floorPrefText}`;
       }
     }
 
@@ -1020,12 +1415,13 @@
       e.preventDefault();
       const feedback = document.getElementById('form-feedback');
       const bizName = document.getElementById('biz-name').value;
+      const refNum = `MKHT-${Math.floor(1000 + Math.random() * 9000)}`;
 
-      feedback.classList.remove('hidden', 'bg-red-500/20', 'text-red-600', 'bg-emerald-500/20', 'text-emerald-600');
+      feedback.classList.remove('hidden', 'bg-red-500/20', 'text-red-600');
       feedback.classList.add('bg-emerald-500/20', 'text-emerald-600', 'dark:text-emerald-400');
       feedback.innerText = currentLang === 'ar' 
-        ? `تم استلام طلبك بنجاح لـ (${bizName}) للموقع أمام ساحات المسجد النبوي! رقم المرجعية: #MUKH-MADINAH-${Math.floor(1000 + Math.random() * 9000)}.`
-        : `Application received for (${bizName}) facing Al-Masjid An-Nabawi! Reference ID: #MUKH-MADINAH-${Math.floor(1000 + Math.random() * 9000)}.`;
+        ? `تم استقبال طلبك بنجاح لـ (${bizName})! رقم المرجعية: #${refNum}`
+        : `Your request for (${bizName}) has been received! Reference ID: #${refNum}`;
 
       setTimeout(() => {
         document.getElementById('lease-form').reset();
@@ -1037,7 +1433,20 @@
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
       btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+      
+      menu.querySelectorAll('a, button').forEach(item => {
+        item.addEventListener('click', () => { menu.classList.add('hidden'); });
+      });
     }
+
+    // Close modals on outside click
+    document.getElementById('lease-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'lease-modal') closeLeaseModal();
+    });
+    
+    document.getElementById('gallery-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'gallery-modal') closeGalleryModal();
+    });
   </script>
 </body>
 </html>
